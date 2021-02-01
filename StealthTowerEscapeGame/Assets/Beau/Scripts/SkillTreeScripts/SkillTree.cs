@@ -6,6 +6,21 @@ using TMPro;
 
 public class SkillTree : MonoBehaviour
 {
+    [System.Serializable]
+    public class Stats
+    {
+        public float[] stealthNum;
+        public float[] throwingDistNum;
+        public float[] camVisability;
+        public float[] damageNum;
+        public float[] grabGuardSpeedNum;
+        public float[] speedNum;
+        public float[] crouchWalkSpeedNum;
+        public float[] slideSpeedNum;
+        public float[] slideRangeNum;
+    }
+    public Stats stats;
+
     public Color unlockedColor;
 
     [SerializeField] float sliderSpeed;
