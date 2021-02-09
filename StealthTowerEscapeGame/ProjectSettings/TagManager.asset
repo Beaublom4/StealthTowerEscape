@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - PathPoint
+  - Object
+  - Keycard
+  - Scanner
   layers:
   - Default
   - TransparentFX
