@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController controller;
 
-    public float speed, crouchSpeed, proneSpeed, walkingSpeed, slideSpeed, slideTimer, slideTimerMax;
+    public float speed, crouchSpeed, proneSpeed, walkingSpeed, slideSpeed, slideTimer, slideTimerMax, runningSpeed;
     public float gravity;
     public float jumpHeight;
     public float curVelocity;
@@ -74,8 +74,11 @@ public class PlayerMovement : MonoBehaviour
             speed = walkingSpeed;
         }
 
-
-        if (Input.GetButton("Crouch") && isSliding == false)
+        if(Input.GetButton("Run"))
+        {
+            speed = runningSpeed;
+        }
+        else if (Input.GetButton("Crouch") && isSliding == false)
         {
             controller.height = 1.2f;
             speed = crouchSpeed;
