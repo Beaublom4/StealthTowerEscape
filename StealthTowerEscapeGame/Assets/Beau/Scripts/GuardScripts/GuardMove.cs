@@ -8,16 +8,15 @@ public class GuardMove : MonoBehaviour
 	[SerializeField] GuardPath walkingPath;
 
 	[SerializeField] float walkingSpeed, runningSpeed, searchingTime;
-    [SerializeField] Transform lastPlayerPos;
 
     NavMeshAgent agent;
     int currentDest;
     Transform currentDestTrans;
 
     Transform playerLoc;
-    public bool lookForPlayer;
-    IEnumerator searchCoroutine;
+    Vector3 lastPlayerLoc;
 
+    public bool spottedPlayer, lostPlayer;
     public bool isAttacking;
 
     private void Awake()
@@ -31,11 +30,11 @@ public class GuardMove : MonoBehaviour
     }
     private void Update()
     {
-        if(lookForPlayer == true)
+        if (spottedPlayer == true)
         {
             transform.LookAt(new Vector3(playerLoc.position.x, transform.position.y, playerLoc.position.z));
         }
-        if(isAttacking == true)
+        if (isAttacking == true)
         {
             transform.LookAt(new Vector3(playerLoc.position.x, transform.position.y, playerLoc.position.z));
             agent.SetDestination(playerLoc.transform.position);
@@ -49,6 +48,8 @@ public class GuardMove : MonoBehaviour
 
     public void NextLocation(Transform point)
     {
+        if (spottedPlayer == true || isAttacking == true || lostPlayer == true)
+            return;
         if (walkingPath.points[currentDest].transform != point)
             return;
 
@@ -60,39 +61,33 @@ public class GuardMove : MonoBehaviour
         agent.SetDestination(walkingPath.points[currentDest].transform.position);
     }
 
-    public void SearchForPlayer(Transform _player)
+    public void SpottedPlayer(Transform _player)
     {
-        if (searchCoroutine != null)
-            StopCoroutine(searchCoroutine);
         agent.isStopped = true;
         playerLoc = _player;
-        lookForPlayer = true;
+        spottedPlayer = true;
     }
     public void StopSearchForPlayer()
     {
-        if (searchCoroutine != null)
-            StopCoroutine(searchCoroutine);
-        searchCoroutine = LookForPlayerTime();
-        StartCoroutine(searchCoroutine);
+        print("Lost player");
+        isAttacking = false;
+        spottedPlayer = false;
+        lastPlayerLoc = playerLoc.position;
+        agent.SetDestination(lastPlayerLoc);
+        agent.isStopped = false;
     }
     public void AttackPlayer(GameObject player)
     {
         print("Attack player");
-        agent.isStopped = false;
-        lookForPlayer = false;
         isAttacking = true;
-    }
-    IEnumerator LookForPlayerTime()
-    {
-        lookForPlayer = false;
-        agent.SetDestination(playerLoc.position);
+        spottedPlayer = false;
+
         agent.isStopped = false;
-        yield return new WaitForSeconds(searchingTime);
-        ReturnToPath();
     }
     public void ReturnToPath()
     {
         print("Return on path");
+        spottedPlayer = false;
         agent.SetDestination(walkingPath.points[currentDest].transform.position);
     }
 }

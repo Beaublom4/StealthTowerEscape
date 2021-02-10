@@ -9,6 +9,7 @@ TagManager:
   - Object
   - Keycard
   - Scanner
+  - CamPc
   layers:
   - Default
   - TransparentFX

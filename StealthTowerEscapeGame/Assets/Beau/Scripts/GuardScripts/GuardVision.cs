@@ -58,12 +58,10 @@ public class GuardVision : MonoBehaviour
                         {
                             if (playerInSight == false)
                             {
+                                playerInSight = true;
                                 print("Spotted");
                                 other.GetComponent<PlayerGetSpotted>().IncreaseSpottedMeter(spotSpeed, transform.parent.gameObject);
-
-                                guardMoveScript.SearchForPlayer(other.transform);
-
-                                playerInSight = true;
+                                guardMoveScript.SpottedPlayer(other.transform);
                             }
                         }
                         else
@@ -98,13 +96,17 @@ public class GuardVision : MonoBehaviour
         playerInSight = false;
         player.GetComponent<PlayerGetSpotted>().DecreaseSpottedMeter();
 
-        if (!guardMoveScript.isAttacking)
+        if(guardMoveScript.spottedPlayer == true)
         {
-            guardMoveScript.StopSearchForPlayer();
+            guardMoveScript.spottedPlayer = false;
+            if (lostPlayerCoroutine != null)
+                StopCoroutine(lostPlayerCoroutine);
+            lostPlayerCoroutine = LostPlayerVision();
+            StartCoroutine(lostPlayerCoroutine);
         }
-        else
+        else if(guardMoveScript.isAttacking == true)
         {
-            print("Lost Player");
+            guardMoveScript.isAttacking = false;
             if (lostPlayerCoroutine != null)
                 StopCoroutine(lostPlayerCoroutine);
             lostPlayerCoroutine = LostPlayerVision();
@@ -113,9 +115,10 @@ public class GuardVision : MonoBehaviour
     }
     IEnumerator LostPlayerVision()
     {
-        guardMoveScript.isAttacking = false;
-        guardMoveScript.lookForPlayer = false;
+        guardMoveScript.lostPlayer = true;
+        guardMoveScript.StopSearchForPlayer();
         yield return new WaitForSeconds(lostPlayerSearchTime);
+        guardMoveScript.lostPlayer = false;
         guardMoveScript.ReturnToPath();
     }
 
