@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed, crouchSpeed, proneSpeed, walkingSpeed, slideSpeed, slideTimer, slideTimerMax, runningSpeed;
     public float gravity;
     public float jumpHeight;
-    public float curVelocity;
+    public float curVelocity, walkHeight, crouchHeight, proneHeight;
 
     public Transform groundCheck;
     public float groundDistance;
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(isSliding == true)
         {
-            controller.height = .5f;
+            controller.height = crouchHeight;
             speed = slideSpeed;
             controller.Move(slideFoward * slideSpeed * Time.deltaTime);
 
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(isSliding == false)
         {
-            controller.height = 2f;
+            controller.height = walkHeight;
             speed = walkingSpeed;
         }
 
@@ -80,19 +80,19 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetButton("Crouch") && isSliding == false)
         {
-            controller.height = 1.2f;
+            controller.height = crouchHeight;
             speed = crouchSpeed;
         }
         else if (Input.GetButton("Prone") && isSliding == false)
         {
-            controller.height = .3f;
+            controller.height = proneHeight;
             controller.radius = .3f;
             speed = proneSpeed;
         }
 
         else if(isSliding == false)
         {
-            controller.height = 2f;
+            controller.height = walkHeight;
             controller.radius = .5f;
             speed = walkingSpeed;
         }
