@@ -9,7 +9,12 @@ TagManager:
   - Object
   - Keycard
   - Scanner
+<<<<<<< Updated upstream
   - CamPc
+=======
+  - Enemy
+  - Backstab
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
