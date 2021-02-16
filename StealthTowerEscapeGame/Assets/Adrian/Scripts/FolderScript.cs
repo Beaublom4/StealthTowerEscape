@@ -6,15 +6,20 @@ using TMPro;
 
 public class FolderScript : MonoBehaviour
 {
+    [Header("Animator")]
+    public Animator folderAnimator;
+
     [Header("Objects")]
     public GameObject folderMenu;
 
     [Header("Variables")]
     public float openTime = 1f;
 
+
+
     void Start()
     {
-        OpenFolder();
+        folderAnimator.SetBool("CanOpen", false);
     }
 
 
@@ -23,20 +28,13 @@ public class FolderScript : MonoBehaviour
         
     }
 
-    private void OpenFolder()
+    public void OpenFolder()
     {
-        folderMenu.SetActive(false);
-
-        StartCoroutine("ShowMenu");
+        folderAnimator.SetBool("CanOpen", true);
     }
 
-    private IEnumerator ShowMenu()
+    public void CloseFolder()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(openTime);
-
-            folderMenu.SetActive(true);
-        }
+        folderAnimator.SetBool("CanOpen", false);
     }
 }
