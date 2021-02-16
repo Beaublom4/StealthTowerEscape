@@ -151,7 +151,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.85
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.7
@@ -214,6 +214,9 @@ MonoBehaviour:
   gravity: -4
   jumpHeight: 1
   curVelocity: 2
+  walkHeight: 1.85
+  crouchHeight: 1.2
+  proneHeight: 0.5
   groundCheck: {fileID: 379569195}
   groundDistance: 0.4
   groundMask:
