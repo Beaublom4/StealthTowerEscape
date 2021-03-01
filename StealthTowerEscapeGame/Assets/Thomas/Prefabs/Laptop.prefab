@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8058787930611517014}
   - component: {fileID: 6375209733573380595}
   - component: {fileID: 9195712929986641209}
+  - component: {fileID: 227138518295479621}
   m_Layer: 0
   m_Name: Laptop
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &227138518295479621
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7250021620620614892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1912213703759168438, guid: e8f60f1e576d521489c0ae3e4242741d, type: 3}

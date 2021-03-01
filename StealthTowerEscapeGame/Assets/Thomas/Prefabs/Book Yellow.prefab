@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6400252434000513248}
   - component: {fileID: 8033744678855706437}
   - component: {fileID: 5231334975125713807}
+  - component: {fileID: -3514917526925687263}
   m_Layer: 0
   m_Name: Book Yellow
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &-3514917526925687263
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024007610630296154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -66333826979096818, guid: dc7e5e7b61f7f384c8f608d12a96a5d2, type: 3}

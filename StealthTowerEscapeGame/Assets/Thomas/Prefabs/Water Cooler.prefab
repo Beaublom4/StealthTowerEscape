@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3183346161346584541}
   - component: {fileID: 1982252214527561848}
   - component: {fileID: 4352351542632080562}
+  - component: {fileID: 8397123622816070883}
   m_Layer: 0
   m_Name: Water Cooler
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8397123622816070883
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2839049915258815847}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1803035661392168491, guid: b3b5a0d8548948841af3f7581d7ab510, type: 3}
