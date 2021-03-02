@@ -17,13 +17,15 @@ public class Interect : MonoBehaviour
             this.transform.position = pickupTrans.position;
             this.transform.parent = dest.transform;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
         }
 
-        else if(Input.GetMouseButtonUp(1))
+        else if(Input.GetMouseButtonUp(1) && hasPickedUp == true)
         {
+            print("drop test");
             this.transform.parent = null;
-            GetComponent<Rigidbody>().useGravity = true;
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            this.GetComponent<Rigidbody>().useGravity = true;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             hasPickedUp = false;
         }
     }

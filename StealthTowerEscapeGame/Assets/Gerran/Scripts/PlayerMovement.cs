@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         else if(isSliding == false)
         {
             controller.height = walkHeight;
-            controller.radius = .5f;
+            controller.radius = .35f;
             speed = walkingSpeed;
         }
 
