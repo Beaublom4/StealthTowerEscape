@@ -8,6 +8,9 @@ TagManager:
   - Scanner
   - Keycard
   - Enemy
+  - CamPc
+  - PathPoint
+  - Door
   layers:
   - Default
   - TransparentFX

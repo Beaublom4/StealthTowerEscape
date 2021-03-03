@@ -38,10 +38,13 @@ public class FlyingObj : MonoBehaviour
                 }
             }
 
-            if(hit.transform.tag == "Door")
+            if (Input.GetButtonDown("Fire1"))
             {
-                hit.transform.GetComponent<Door>().Open_Close();
+                if (hit.transform.tag == "Door")
+                {
+                    hit.transform.GetComponent<Door>().Open_Close();
 
+                }
             }
         }
     }
