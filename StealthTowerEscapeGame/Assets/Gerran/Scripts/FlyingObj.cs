@@ -37,6 +37,12 @@ public class FlyingObj : MonoBehaviour
                     hit.rigidbody.velocity = transform.forward * (velosity * speed) * Time.deltaTime;
                 }
             }
+
+            if(hit.transform.tag == "Door")
+            {
+                hit.transform.GetComponent<Door>().Open_Close();
+
+            }
         }
     }
 }
