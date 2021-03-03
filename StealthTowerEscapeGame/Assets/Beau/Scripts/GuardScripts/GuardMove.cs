@@ -19,6 +19,8 @@ public class GuardMove : MonoBehaviour
     public bool spottedPlayer, lostPlayer;
     public bool isAttacking;
 
+    IEnumerator whistle;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -83,6 +85,22 @@ public class GuardMove : MonoBehaviour
         spottedPlayer = false;
 
         agent.isStopped = false;
+    }
+    public void Whistle(Vector3 pos, float whistleTime)
+    {
+        print("Guard: " + gameObject.name + " got whistled");
+
+        if(whistle != null)
+            StopCoroutine(whistle);
+        whistle = ReturnAfterWhistle(whistleTime);
+        StartCoroutine(whistle);
+
+        agent.SetDestination(pos);
+    }
+    IEnumerator ReturnAfterWhistle(float whistleTime)
+    {
+        yield return new WaitForSeconds(whistleTime);
+        ReturnToPath();
     }
     public void ReturnToPath()
     {

@@ -7,10 +7,18 @@ public class CamViewer : MonoBehaviour
 	[SerializeField] Material[] camMats;
 	[SerializeField] int camNum;
 
-    [SerializeField] Material currentMat;
+    [SerializeField] MeshRenderer renderer;
     private void Awake()
     {
         camNum = Random.Range(0, camMats.Length);
-        currentMat = camMats[camNum];
+        renderer.material = camMats[camNum];
+    }
+    public void ChangeCam()
+    {
+        camNum++;
+        if (camNum >= camMats.Length)
+            camNum = 0;
+
+        renderer.material = camMats[camNum];
     }
 }
