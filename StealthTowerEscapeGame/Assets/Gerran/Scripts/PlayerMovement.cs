@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 velocity, slideFoward;
     public bool isGrounded, slideUnlocked, isSliding;
 
+    public GameObject cam;
+    public Vector3 crouchCam, normalCam;
+
     // Update is called once per frame
     void Update()
     {
@@ -85,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetButton("Prone") && isSliding == false)
         {
+            cam.transform.localPosition = crouchCam;
             controller.height = proneHeight;
             controller.radius = .1f;
             speed = proneSpeed;
@@ -92,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
         else if(isSliding == false)
         {
+            cam.transform.localPosition = normalCam;
             controller.height = walkHeight;
             controller.radius = .3f;
             speed = walkingSpeed;

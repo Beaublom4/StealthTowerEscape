@@ -7,7 +7,6 @@ public class Health : MonoBehaviour
 
     public float health, maxHealth;
     public Vector3 reSpawnPoint;
-    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +24,9 @@ public class Health : MonoBehaviour
 
         if (health <= 0.000001)
         {
+            GetComponent<CharacterController>().enabled = false;
             this.transform.position = reSpawnPoint;
-
+            GetComponent<CharacterController>().enabled = true;
             health = maxHealth;
         }
 
