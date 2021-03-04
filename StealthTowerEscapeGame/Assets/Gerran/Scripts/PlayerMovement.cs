@@ -86,14 +86,14 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetButton("Prone") && isSliding == false)
         {
             controller.height = proneHeight;
-            controller.radius = .3f;
+            controller.radius = .1f;
             speed = proneSpeed;
         }
 
         else if(isSliding == false)
         {
             controller.height = walkHeight;
-            controller.radius = .35f;
+            controller.radius = .3f;
             speed = walkingSpeed;
         }
 

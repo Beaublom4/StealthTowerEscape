@@ -17,10 +17,11 @@ public class Melee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        if(Physics.Raycast(crTrans.position, transform.forward, out hit, range))
+        if (Input.GetButtonDown("Fire1"))
         {
-            if (Input.GetButtonDown("Fire1"))
+            
+            RaycastHit hit;
+            if(Physics.Raycast(crTrans.position, transform.forward, out hit, range))
             {
                 print("hit");
                 
