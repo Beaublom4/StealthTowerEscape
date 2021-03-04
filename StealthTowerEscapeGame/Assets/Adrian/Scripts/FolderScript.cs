@@ -15,7 +15,6 @@ public class FolderScript : MonoBehaviour
     public GameObject startButton;
     public GameObject optionsButton;
     public GameObject backButton;
-    public GameObject level1Button;
 
     [Header("Variables")]
     public float openTime = 1f;
@@ -32,7 +31,6 @@ public class FolderScript : MonoBehaviour
         startButton.SetActive(true);
         optionsButton.SetActive(true);
         backButton.SetActive(false);
-        level1Button.SetActive(false);
     }
 
 
@@ -51,20 +49,11 @@ public class FolderScript : MonoBehaviour
         folderAnimator.SetBool("CanOpen", false);
     }
 
-    public void GoToLevels()
-    {
-        startButton.SetActive(false);
-        optionsButton.SetActive(false);
-        backButton.SetActive(true);
-        level1Button.SetActive(true);
-    }
-
     public void GoBackToMainMenu()
     {
         startButton.SetActive(true);
         optionsButton.SetActive(true);
         backButton.SetActive(false);
-        level1Button.SetActive(false);
     }
 
     public void LoadLevel1()
