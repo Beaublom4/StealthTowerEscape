@@ -8663,7 +8663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &567228879
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8733,7 +8733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567228878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.34, y: 1, z: 47.98}
+  m_LocalPosition: {x: 17.1, y: 1, z: 47.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 380999733}
@@ -8758,9 +8758,11 @@ MonoBehaviour:
   walkingSpeed: 1
   runningSpeed: 5
   searchingTime: 5
+  agent: {fileID: 0}
   spottedPlayer: 0
   lostPlayer: 0
   isAttacking: 0
+  shootTrigger: {fileID: 0}
 --- !u!195 &567228884
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10619,6 +10621,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spottedMeter: 0
   decreasingSpeed: 10
+  increase: 0
+  isSpotted: 0
 --- !u!114 &745605716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21533,11 +21537,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1935212890}
+  - {fileID: 1333474117}
+  - {fileID: 1190009203}
+  - {fileID: 1872410307}
+  - {fileID: 1501992122}
 --- !u!1 &1793613989
 GameObject:
   m_ObjectHideFlags: 0
@@ -23907,6 +23911,7 @@ MonoBehaviour:
   fieldOfView: 45
   spotSpeed: 50
   lookPos: {fileID: 445200527}
+  guardMain: {fileID: 0}
   lookPosVisualLine:
   - {fileID: 1967096206}
   - {fileID: 1905065212}
@@ -25968,6 +25973,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 997001020374643627, guid: a0a582fe5d04fe642bae9fa9089cb9e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1620282018843189739, guid: a0a582fe5d04fe642bae9fa9089cb9e2,
         type: 3}
       propertyPath: m_RootOrder
@@ -26028,30 +26038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guard
       objectReference: {fileID: 0}
+    - target: {fileID: 8726896168578567639, guid: a0a582fe5d04fe642bae9fa9089cb9e2,
+        type: 3}
+      propertyPath: walkingPath
+      value: 
+      objectReference: {fileID: 1766221487}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0a582fe5d04fe642bae9fa9089cb9e2, type: 3}
---- !u!1 &1158449363545680096 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2105350662059047761, guid: a0a582fe5d04fe642bae9fa9089cb9e2,
-    type: 3}
-  m_PrefabInstance: {fileID: 946906883724366769}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1158449363545680097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1158449363545680096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91babcd1af28b7438318d33a225f720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkingPath: {fileID: 1766221487}
-  walkingSpeed: 1
-  runningSpeed: 5
-  searchingTime: 5
-  spottedPlayer: 0
-  lostPlayer: 0
-  isAttacking: 0

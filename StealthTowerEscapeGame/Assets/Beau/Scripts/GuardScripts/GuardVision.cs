@@ -8,6 +8,7 @@ public class GuardVision : MonoBehaviour
     [SerializeField] float spotSpeed;
 
     [SerializeField] Transform lookPos;
+    [SerializeField] GameObject guardMain;
 
     [SerializeField] Transform[] lookPosVisualLine;
     float visionRange;
@@ -60,7 +61,7 @@ public class GuardVision : MonoBehaviour
                             {
                                 playerInSight = true;
                                 print("Spotted");
-                                other.GetComponent<PlayerGetSpotted>().IncreaseSpottedMeter(spotSpeed, transform.parent.gameObject);
+                                other.GetComponent<PlayerGetSpotted>().IncreaseSpottedMeter(spotSpeed, guardMain);
                                 guardMoveScript.SpottedPlayer(other.transform);
                             }
                         }

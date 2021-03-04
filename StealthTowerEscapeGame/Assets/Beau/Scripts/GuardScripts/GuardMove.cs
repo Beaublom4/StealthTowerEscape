@@ -7,9 +7,9 @@ public class GuardMove : MonoBehaviour
 {
 	[SerializeField] GuardPath walkingPath;
 
-	[SerializeField] float walkingSpeed, runningSpeed, searchingTime;
+	public float walkingSpeed, runningSpeed, searchingTime;
 
-    NavMeshAgent agent;
+    [HideInInspector] public NavMeshAgent agent;
     int currentDest;
     Transform currentDestTrans;
 
@@ -20,6 +20,8 @@ public class GuardMove : MonoBehaviour
     public bool isAttacking;
 
     IEnumerator whistle;
+
+    [SerializeField] GameObject shootTrigger;
 
     private void Awake()
     {
@@ -44,8 +46,15 @@ public class GuardMove : MonoBehaviour
     }
     void SetUp()
     {
-        agent.SetDestination(walkingPath.points[currentDest].transform.position);
-        currentDestTrans = walkingPath.points[currentDest].transform;
+        if (walkingPath != null)
+        {
+            agent.SetDestination(walkingPath.points[currentDest].transform.position);
+            currentDestTrans = walkingPath.points[currentDest].transform;
+        }
+        else
+        {
+            //idle
+        }
     }
 
     public void NextLocation(Transform point)
@@ -74,6 +83,9 @@ public class GuardMove : MonoBehaviour
         print("Lost player");
         isAttacking = false;
         spottedPlayer = false;
+
+        shootTrigger.SetActive(false);
+
         lastPlayerLoc = playerLoc.position;
         agent.SetDestination(lastPlayerLoc);
         agent.isStopped = false;
@@ -83,6 +95,8 @@ public class GuardMove : MonoBehaviour
         print("Attack player");
         isAttacking = true;
         spottedPlayer = false;
+
+        shootTrigger.SetActive(true);
 
         agent.isStopped = false;
     }

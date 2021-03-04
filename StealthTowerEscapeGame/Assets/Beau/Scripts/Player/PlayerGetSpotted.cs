@@ -9,7 +9,7 @@ public class PlayerGetSpotted : MonoBehaviour
 
     GameObject spotObj;
     float increaseSpeed;
-    bool increase, isSpotted;
+    public bool increase, isSpotted;
     private void Update()
     {
         if(increase == true)

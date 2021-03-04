@@ -72,6 +72,8 @@ GameObject:
   - component: {fileID: 901653824019198766}
   - component: {fileID: 901653824019198762}
   - component: {fileID: 901653824019198767}
+  - component: {fileID: 8450285790008037161}
+  - component: {fileID: 8633758528807700715}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -166,6 +168,39 @@ MonoBehaviour:
   damage: 5
   backstabDamage: 10
   crTrans: {fileID: 901653824606624208}
+--- !u!114 &8450285790008037161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901653824019198753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157856556e1a2c14d8353488247ef757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spottedMeter: 0
+  decreasingSpeed: 10
+  increase: 0
+  isSpotted: 0
+--- !u!114 &8633758528807700715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901653824019198753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1515eef9dfa71204f872b04087b9673b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 0
+  range: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &901653824606624213
 GameObject:
   m_ObjectHideFlags: 0
