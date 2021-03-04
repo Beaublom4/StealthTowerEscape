@@ -25,11 +25,11 @@ public class FlyingObj : MonoBehaviour
                 if (hit.transform.GetComponent<Interect>().hasPickedUp == true)
                 {
                     print("throw test");
-                    hit.transform.GetComponent<Rigidbody>().velocity = transform.forward * (velosity * speed) * Time.deltaTime;
                     hit.transform.parent = null;
                     hit.transform.GetComponent<Rigidbody>().useGravity = true;
                     hit.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                     hit.transform.GetComponent<Interect>().hasPickedUp = false;
+                    hit.transform.GetComponent<Rigidbody>().velocity = transform.forward * (velosity * speed) * Time.deltaTime;
                 }
 
                 else
