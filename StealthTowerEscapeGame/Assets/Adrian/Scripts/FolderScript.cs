@@ -14,6 +14,7 @@ public class FolderScript : MonoBehaviour
     public GameObject folderMenu;
     public GameObject startButton;
     public GameObject optionsButton;
+    public GameObject backButton;
     public GameObject level1Button;
 
     [Header("Variables")]
@@ -30,6 +31,7 @@ public class FolderScript : MonoBehaviour
 
         startButton.SetActive(true);
         optionsButton.SetActive(true);
+        backButton.SetActive(false);
         level1Button.SetActive(false);
     }
 
@@ -53,6 +55,7 @@ public class FolderScript : MonoBehaviour
     {
         startButton.SetActive(false);
         optionsButton.SetActive(false);
+        backButton.SetActive(true);
         level1Button.SetActive(true);
     }
 
@@ -60,6 +63,7 @@ public class FolderScript : MonoBehaviour
     {
         startButton.SetActive(true);
         optionsButton.SetActive(true);
+        backButton.SetActive(false);
         level1Button.SetActive(false);
     }
 
