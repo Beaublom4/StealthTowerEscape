@@ -327,7 +327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7912575072725531432
 Transform:
   m_ObjectHideFlags: 0
@@ -741,6 +741,7 @@ GameObject:
   - component: {fileID: 3673439025546965977}
   - component: {fileID: 2333174510609664472}
   - component: {fileID: 8726896168578567639}
+  - component: {fileID: 6506378594066886913}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -822,6 +823,19 @@ MonoBehaviour:
   lostPlayer: 0
   isAttacking: 0
   shootTrigger: {fileID: 997001020374643627}
+--- !u!114 &6506378594066886913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105350662059047761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35618bd52ec7f374a9ac52f539882679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &2292604467873057634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,7 +1284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6165946960326297289
 Transform:
   m_ObjectHideFlags: 0
@@ -1293,7 +1307,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3933016756644124501}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 15
@@ -2186,7 +2200,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4111067035398979374
 MonoBehaviour:

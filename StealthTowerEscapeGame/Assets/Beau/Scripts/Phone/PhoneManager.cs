@@ -11,7 +11,7 @@ public class PhoneManager : MonoBehaviour
     }
     public void PressBack()
     {
-
+        print("Test");
     }
     public void ButtonMap()
     {
@@ -24,6 +24,7 @@ public class PhoneManager : MonoBehaviour
 
     void SelectApp(string name)
     {
+        print("select: " + name);
         foreach (GameObject g in panels)
         {
             if (g.GetComponent<PhoneApp>().appName != name)
