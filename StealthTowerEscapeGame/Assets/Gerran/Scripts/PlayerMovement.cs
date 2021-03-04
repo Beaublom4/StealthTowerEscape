@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     public Vector3 velocity, slideFoward;
-    public bool isGrounded, slideUnlocked, isSliding;
+    public bool isGrounded, slideUnlocked, isSliding, isJumping;
 
     public GameObject cam;
     public Vector3 crouchCam, normalCam;
