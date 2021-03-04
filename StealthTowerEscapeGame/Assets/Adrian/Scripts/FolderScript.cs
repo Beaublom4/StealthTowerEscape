@@ -58,6 +58,6 @@ public class FolderScript : MonoBehaviour
 
     public void LoadLevel1()
     {
-        SceneManager.LoadScene(naamScene);
+        SceneManager.LoadScene(1);
     }
 }
