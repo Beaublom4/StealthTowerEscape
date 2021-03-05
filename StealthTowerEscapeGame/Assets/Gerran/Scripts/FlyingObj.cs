@@ -29,7 +29,7 @@ public class FlyingObj : MonoBehaviour
             if(hit.transform.tag == "Object")
             {
                 print("hit");
-                if(Input.GetButton("Fire2"))
+                if(Input.GetButton("Fire2") && hasPickedUp == false)
                 {
                     print("getem");
                     hasPickedUp = true;
