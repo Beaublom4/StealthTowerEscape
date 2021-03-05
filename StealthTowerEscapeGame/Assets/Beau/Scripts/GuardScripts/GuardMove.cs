@@ -7,7 +7,7 @@ public class GuardMove : MonoBehaviour
 {
 	[SerializeField] GuardPath walkingPath;
 
-	public float walkingSpeed, runningSpeed, searchingTime;
+	public float walkingSpeed, searchingTime;
 
     [HideInInspector] public NavMeshAgent agent;
     int currentDest;
@@ -18,6 +18,9 @@ public class GuardMove : MonoBehaviour
 
     public bool spottedPlayer, lostPlayer;
     public bool isAttacking;
+
+    [SerializeField] GameObject spotSignObj;
+    IEnumerator coroutine;
 
     IEnumerator whistle;
 
@@ -86,25 +89,36 @@ public class GuardMove : MonoBehaviour
         isAttacking = false;
         spottedPlayer = false;
 
-        flashLight.color = Color.white;
-
        shootTrigger.SetActive(false);
 
         lastPlayerLoc = playerLoc.position;
         agent.SetDestination(lastPlayerLoc);
         agent.isStopped = false;
     }
-    public void AttackPlayer(GameObject player)
+    public void AttackPlayer(GameObject _player)
     {
         print("Attack player");
+        playerLoc = _player.transform;
+
         isAttacking = true;
         spottedPlayer = false;
+
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = ShowMark();
+        StartCoroutine(coroutine);
 
         flashLight.color = spottedColor;
 
         shootTrigger.SetActive(true);
 
         agent.isStopped = false;
+    }
+    IEnumerator ShowMark()
+    {
+        spotSignObj.SetActive(true);
+        yield return new WaitForSeconds(2);
+        spotSignObj.SetActive(false);
     }
     public void Whistle(Vector3 pos, float whistleTime)
     {
@@ -125,6 +139,7 @@ public class GuardMove : MonoBehaviour
     public void ReturnToPath()
     {
         print("Return on path");
+        flashLight.color = Color.white;
         spottedPlayer = false;
         agent.SetDestination(walkingPath.points[currentDest].transform.position);
     }

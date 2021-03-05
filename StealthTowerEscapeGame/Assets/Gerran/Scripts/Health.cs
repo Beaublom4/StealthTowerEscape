@@ -5,15 +5,13 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
 
-    public float health, maxHealth;
+    public float health;
+    float maxHealth;
     public Vector3 reSpawnPoint;
 
     private void Awake()
     {
-        if (health >= maxHealth)
-        {
-            health = maxHealth;
-        }
+        maxHealth = health;
     }
     public void GetDamage(float dmg)
     {

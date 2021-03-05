@@ -7,6 +7,8 @@ public class GuardShoot : MonoBehaviour
     [SerializeField] GuardMove moveScript;
     [SerializeField] bool shooting;
     [SerializeField] GunSOB gun;
+    [SerializeField] LayerMask guardMask, shootMask;
+    [SerializeField] GameObject shotTrail;
 
     [SerializeField] Transform gunSpot;
 
@@ -39,7 +41,24 @@ public class GuardShoot : MonoBehaviour
     }
     void Shoot()
     {
-        player.GetComponent<Health>().GetDamage(gun.damage);
+        Collider[] guards = Physics.OverlapSphere(transform.position, 15, guardMask);
+        print(guards.Length);
+        foreach(Collider guard in guards)
+        {
+            guard.GetComponent<GuardMove>().AttackPlayer(player);
+        }
+
+        GameObject trail = Instantiate(shotTrail, transform.position, Quaternion.LookRotation(player.transform.position - transform.position));
+        trail.GetComponent<Rigidbody>().AddRelativeForce(0, 0, 1500);
+        Destroy(trail, 3);
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, player.transform.position, out hit, 100, shootMask, QueryTriggerInteraction.Ignore))
+        {
+            if(hit.collider.tag == "Player")
+            {
+                player.GetComponent<Health>().GetDamage(gun.damage);
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

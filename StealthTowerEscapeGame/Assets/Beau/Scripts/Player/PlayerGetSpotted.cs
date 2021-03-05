@@ -16,7 +16,7 @@ public class PlayerGetSpotted : MonoBehaviour
     [HideInInspector] public bool increase, isSpotted;
     private void Update()
     {
-        if(increase == true)
+        if(increase == true && !isSpotted)
         {
             spottedMeter += increaseSpeed * Time.deltaTime;
             spottedMeter = Mathf.Clamp(spottedMeter, 0, 100);
@@ -25,8 +25,7 @@ public class PlayerGetSpotted : MonoBehaviour
             if (spottedMeter >= 100 && isSpotted == false)
             {
                 isSpotted = true;
-                spotObj.GetComponentInChildren<GuardMove>()?.AttackPlayer(gameObject);
-                spotObj.GetComponentInChildren<CameraVision>()?.AttackPlayer();
+                spotSlider.gameObject.SetActive(false);
             }
         }
         else if(increase == false && spottedMeter > 0)
@@ -35,6 +34,7 @@ public class PlayerGetSpotted : MonoBehaviour
             spottedMeter -= decreasingSpeed * Time.deltaTime;
             spotObj = null;
             spottedMeter = Mathf.Clamp(spottedMeter, 0, 100);
+            spotSlider.value = spottedMeter;
         }
         else if(spotSlider.gameObject.activeSelf && spottedMeter <= 0)
         {

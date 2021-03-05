@@ -57,12 +57,13 @@ public class GuardVision : MonoBehaviour
 
                         if (!guardMoveScript.isAttacking)
                         {
-                            if (playerInSight == false)
+                            playerInSight = true;
+                            print("Spotted");
+                            other.GetComponent<PlayerGetSpotted>().IncreaseSpottedMeter(spotSpeed, guardMain);
+                            guardMoveScript.SpottedPlayer(other.transform);
+                            if(hit.collider.GetComponent<PlayerGetSpotted>().spottedMeter >= 100)
                             {
-                                playerInSight = true;
-                                print("Spotted");
-                                other.GetComponent<PlayerGetSpotted>().IncreaseSpottedMeter(spotSpeed, guardMain);
-                                guardMoveScript.SpottedPlayer(other.transform);
+                                guardMain.GetComponent<GuardMove>().AttackPlayer(other.gameObject);
                             }
                         }
                         else

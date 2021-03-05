@@ -8,13 +8,8 @@ public class Melee : MonoBehaviour
     public float range, damage, backstabDamage;
     public Transform crTrans;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject HitParticles;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -23,18 +18,18 @@ public class Melee : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(crTrans.position, transform.forward, out hit, range))
             {
-                print("hit");
-                
+                print(hit.collider.gameObject.name);
                 if (hit.transform.tag == "Backstab")
                 {
                     print("backstab");
                     hit.transform.gameObject.GetComponentInParent<EnemyHealth>().health -= backstabDamage;
+                    Destroy(Instantiate(HitParticles, hit.point, Quaternion.identity, null), 3);
                 }
-
                 else if (hit.transform.tag == "Enemy")
                 {
                     print("normal");
                     hit.transform.gameObject.GetComponent<EnemyHealth>().health -= damage;
+                    Destroy(Instantiate(HitParticles, hit.point, Quaternion.identity, null), 3);
                 }
 
                 
