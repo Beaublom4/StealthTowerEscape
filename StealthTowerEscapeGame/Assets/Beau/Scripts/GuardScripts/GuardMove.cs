@@ -22,6 +22,8 @@ public class GuardMove : MonoBehaviour
     IEnumerator whistle;
 
     [SerializeField] GameObject shootTrigger;
+    [SerializeField] Light flashLight;
+    [SerializeField] Color spottedColor;
 
     private void Awake()
     {
@@ -84,7 +86,9 @@ public class GuardMove : MonoBehaviour
         isAttacking = false;
         spottedPlayer = false;
 
-        shootTrigger.SetActive(false);
+        flashLight.color = Color.white;
+
+       shootTrigger.SetActive(false);
 
         lastPlayerLoc = playerLoc.position;
         agent.SetDestination(lastPlayerLoc);
@@ -95,6 +99,8 @@ public class GuardMove : MonoBehaviour
         print("Attack player");
         isAttacking = true;
         spottedPlayer = false;
+
+        flashLight.color = spottedColor;
 
         shootTrigger.SetActive(true);
 

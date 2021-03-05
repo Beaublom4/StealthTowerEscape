@@ -1,21 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerGetSpotted : MonoBehaviour
 {
 	public float spottedMeter;
     [SerializeField] float decreasingSpeed; //In seconds
 
+    [SerializeField] Slider spotSlider;
+    bool transition;
+
     GameObject spotObj;
     float increaseSpeed;
-    public bool increase, isSpotted;
+    [HideInInspector] public bool increase, isSpotted;
     private void Update()
     {
         if(increase == true)
         {
             spottedMeter += increaseSpeed * Time.deltaTime;
             spottedMeter = Mathf.Clamp(spottedMeter, 0, 100);
+            spotSlider.gameObject.SetActive(true);
+            spotSlider.value = spottedMeter;
             if (spottedMeter >= 100 && isSpotted == false)
             {
                 isSpotted = true;
@@ -29,6 +35,10 @@ public class PlayerGetSpotted : MonoBehaviour
             spottedMeter -= decreasingSpeed * Time.deltaTime;
             spotObj = null;
             spottedMeter = Mathf.Clamp(spottedMeter, 0, 100);
+        }
+        else if(spotSlider.gameObject.activeSelf && spottedMeter <= 0)
+        {
+            spotSlider.gameObject.SetActive(false);
         }
     }
     public void IncreaseSpottedMeter(float _increaseSpeed, GameObject _spotObj)

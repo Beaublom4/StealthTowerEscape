@@ -8,33 +8,32 @@ public class Health : MonoBehaviour
     public float health, maxHealth;
     public Vector3 reSpawnPoint;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown("i"))
+        if (health >= maxHealth)
         {
-            health -= 50;
+            health = maxHealth;
         }
+    }
+    public void GetDamage(float dmg)
+    {
+        health -= dmg;
 
-        if (health <= 0.000001)
+        if (health <= 0)
         {
+            print("Dood");
             GetComponent<CharacterController>().enabled = false;
             this.transform.position = reSpawnPoint;
             GetComponent<CharacterController>().enabled = true;
             health = maxHealth;
         }
-
-        if(health >= maxHealth)
+    }
+    public void GetHealth(float _health)
+    {
+        health += _health;
+        if (health >= maxHealth)
         {
             health = maxHealth;
         }
     }
-
-
 }
