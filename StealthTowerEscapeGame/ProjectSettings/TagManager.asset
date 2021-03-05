@@ -12,6 +12,7 @@ TagManager:
   - PathPoint
   - Door
   - Backstab
+  - Lift
   layers:
   - Default
   - TransparentFX

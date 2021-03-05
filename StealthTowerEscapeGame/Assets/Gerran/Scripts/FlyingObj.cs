@@ -7,7 +7,7 @@ public class FlyingObj : MonoBehaviour
     public float range, velosity, speed;
     public Transform crTrans;
 
-    public Transform pickupTrans;
+    public Transform pickupTrans, level1Start, player;
     public GameObject dest;
 
     public bool hasPickedUp;
@@ -65,6 +65,14 @@ public class FlyingObj : MonoBehaviour
                 {
                     hit.transform.GetComponent<Door>().Open_Close();
 
+                }
+
+                if(hit.transform.tag == "Lift")
+                {
+                    print("testlift");
+                    GetComponentInParent<CharacterController>().enabled = false;
+                    player.position = level1Start.position;
+                    GetComponentInParent<CharacterController>().enabled = true;
                 }
             }
         }
