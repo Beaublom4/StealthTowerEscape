@@ -270,7 +270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: INVESTIGAYTOR
+  m_text: INVESTIGATOR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 12c17d944f357164fb5731b51aa39317, type: 2}
   m_sharedMaterial: {fileID: 3160136896246733946, guid: 12c17d944f357164fb5731b51aa39317,
@@ -427,6 +427,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 60.000004, y: 179.99998, z: 0}
+--- !u!1001 &216766122
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.313
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.741
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.332
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7933529
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6087621
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31282ea968751c947965c1f71efe0871, type: 2}
+    - target: {fileID: 919132149155446097, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+        type: 3}
+      propertyPath: m_Name
+      value: Desk Lamp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d8ec34b68e7a6df40a022cd0bdb97393, type: 3}
 --- !u!1 &405572085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,6 +1322,12 @@ Transform:
   m_Father: {fileID: 1216826087}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &823709111 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8ec34b68e7a6df40a022cd0bdb97393,
+    type: 3}
+  m_PrefabInstance: {fileID: 216766122}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &857037582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,7 +1777,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &914468883
 Animator:
@@ -7747,7 +7827,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 30.000002, y: -90.00001, z: 0}
 --- !u!1 &1386687626
 GameObject:
@@ -8222,7 +8302,7 @@ GameObject:
   - component: {fileID: 1833687616}
   - component: {fileID: 1833687615}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: Desk Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8296,13 +8376,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833687614}
-  m_LocalRotation: {x: 0.5179823, y: 0.32664073, z: -0.69628453, w: 0.3744171}
-  m_LocalPosition: {x: 0.255, y: 1.102, z: -2.371}
+  m_LocalRotation: {x: 0.5, y: -0.000000089406946, z: -0.000000029802315, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 0.3167, z: 0.1234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 122.56799, y: 117.673, z: 19.875992}
+  m_Father: {fileID: 823709111}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 60.000004, y: 0, z: 0}
 --- !u!1 &1856689214
 GameObject:
   m_ObjectHideFlags: 0
@@ -8599,7 +8679,7 @@ Transform:
   m_Children:
   - {fileID: 1151388027913409490}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450652781897458
 Transform:
@@ -8617,7 +8697,7 @@ Transform:
   - {fileID: 1232999406}
   - {fileID: 555388417}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450653408365307
 Transform:
@@ -8631,7 +8711,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &543450653481249498
 Transform:
@@ -8646,7 +8726,7 @@ Transform:
   m_Children:
   - {fileID: 1151388028530924418}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &693064010180142485
 Transform:
@@ -9159,7 +9239,7 @@ Transform:
   - {fileID: 419212355736709668}
   - {fileID: 3179993257121486693}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 225, z: 0}
 --- !u!4 &6143860643559432008
 Transform:
