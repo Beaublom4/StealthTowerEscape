@@ -6,6 +6,7 @@ public class PlayerPhone : MonoBehaviour
 {
     public GameObject phone;
     public MouseLook cameraScript;
+    public Melee meleeScript;
     private void Update()
     {
         if(Input.GetButtonDown("Cancel"))
@@ -13,6 +14,7 @@ public class PlayerPhone : MonoBehaviour
             if (!phone.activeSelf)
             {
                 phone.SetActive(true);
+                meleeScript.enabled = false;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 cameraScript.enabled = false;
@@ -20,6 +22,7 @@ public class PlayerPhone : MonoBehaviour
             else
             {
                 phone.SetActive(false);
+                meleeScript.enabled = true;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 cameraScript.enabled = true;

@@ -9,4 +9,5 @@ public class GunSOB : ScriptableObject
 	public float fireRate;
 	public float range;
 	public GameObject gunObj;
+	public AudioClip shotSound;
 }

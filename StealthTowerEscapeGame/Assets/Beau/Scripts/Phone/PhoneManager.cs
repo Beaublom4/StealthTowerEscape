@@ -12,7 +12,6 @@ public class PhoneManager : MonoBehaviour
     {
         double t = (double)Time.timeSinceLevelLoad;
         TimeSpan time = TimeSpan.FromSeconds(t);
-        print(string.Format("{0:D2}:{1:D2}:{2:D2}", time.Hours, time.Minutes, time.Seconds));
         string displayTime = string.Format("{0:D2}:{1:D2}", time.Hours, time.Minutes);
 
         timeText.text = displayTime;

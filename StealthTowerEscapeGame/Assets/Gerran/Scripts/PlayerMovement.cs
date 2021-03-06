@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetButton("Prone") && isSliding == false)
         {
             cam.transform.localPosition = crouchCam;
-            controller.height = proneHeight;
+            controller.height = crouchHeight;
             controller.radius = .1f;
             speed = proneSpeed;
             anim.SetBool("isCrouched", true);
@@ -102,14 +102,21 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonUp("Run"))
         {
             anim.SetBool("isSprinting", false);
+            controller.height = walkHeight;
+            speed = walkingSpeed;
         }
         if (Input.GetButtonUp("Crouch"))
         {
             anim.SetBool("isCrouched", false);
+            controller.height = walkHeight;
+            speed = walkingSpeed;
         }
         if (Input.GetButtonUp("Prone"))
         {
             anim.SetBool("isCrouched", false);
+            cam.transform.localPosition = normalCam;
+            controller.height = walkHeight;
+            speed = walkingSpeed;
         }
     }
     void SlideCooldown()

@@ -16,3 +16,4 @@ MonoBehaviour:
   fireRate: 2
   range: 5
   gunObj: {fileID: 0}
+  shotSound: {fileID: 8300000, guid: 33db4dab1cc895d4f8c7b5895ab7f7bc, type: 3}

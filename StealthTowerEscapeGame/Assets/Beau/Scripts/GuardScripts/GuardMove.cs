@@ -97,6 +97,8 @@ public class GuardMove : MonoBehaviour
     }
     public void AttackPlayer(GameObject _player)
     {
+        if (isAttacking)
+            return;
         print("Attack player");
         playerLoc = _player.transform;
 

@@ -6,6 +6,9 @@ public class Melee : MonoBehaviour
 {
     public float range, damage, backstabDamage, cooldown;
     public Transform crTrans;
+    public LayerMask mask;
+    public AudioSource knifeSource;
+    public AudioClip knifeWall, knifeEnemy;
 
     bool canHit = true;
     public Animator anim;
@@ -25,20 +28,32 @@ public class Melee : MonoBehaviour
     public void DoHit()
     {
         RaycastHit hit;
-        if (Physics.Raycast(crTrans.position, transform.forward, out hit, range))
+        if (Physics.Raycast(crTrans.position, transform.forward, out hit, range, mask, QueryTriggerInteraction.Ignore))
         {
             print(hit.collider.gameObject.name);
             if (hit.transform.tag == "Backstab")
             {
                 print("backstab");
-                hit.transform.gameObject.GetComponentInParent<EnemyHealth>().health -= backstabDamage;
+                knifeSource.clip = knifeEnemy;
+                knifeSource.volume = .7f;
+                knifeSource.Play();
+                hit.transform.gameObject.GetComponentInParent<EnemyHealth>().GetDamage(backstabDamage);
                 SpawnParticles();
             }
             else if (hit.transform.tag == "Enemy")
             {
                 print("normal");
-                hit.transform.gameObject.GetComponent<EnemyHealth>().health -= damage;
+                knifeSource.clip = knifeEnemy;
+                knifeSource.volume = .7f;
+                knifeSource.Play();
+                hit.transform.gameObject.GetComponent<EnemyHealth>().GetDamage(damage);
                 SpawnParticles();
+            }
+            else
+            {
+                knifeSource.clip = knifeWall;
+                knifeSource.volume = 1;
+                knifeSource.Play();
             }
         }
     }

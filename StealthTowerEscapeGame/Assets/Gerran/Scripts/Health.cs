@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
@@ -8,10 +9,12 @@ public class Health : MonoBehaviour
     public float health;
     float maxHealth;
     public Vector3 reSpawnPoint;
+    public TMP_Text text;
 
     private void Awake()
     {
         maxHealth = health;
+        HealthDisplay();
     }
     public void GetDamage(float dmg)
     {
@@ -25,6 +28,7 @@ public class Health : MonoBehaviour
             GetComponent<CharacterController>().enabled = true;
             health = maxHealth;
         }
+        HealthDisplay();
     }
     public void GetHealth(float _health)
     {
@@ -33,5 +37,10 @@ public class Health : MonoBehaviour
         {
             health = maxHealth;
         }
+        HealthDisplay();
+    }
+    public void HealthDisplay()
+    {
+        text.text = health.ToString();
     }
 }

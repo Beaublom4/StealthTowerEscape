@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-
     public float health;
-
-    public void Update()
+    GameObject player;
+    private void Awake()
     {
-        if(health <=0.1)
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+    public void GetDamage(float dmg)
+    {
+        health -= dmg;
+        if (health <= 0)
         {
             Destroy(transform.gameObject);
         }
+        GetComponentInParent<GuardMove>().AttackPlayer(player);
     }
 }
