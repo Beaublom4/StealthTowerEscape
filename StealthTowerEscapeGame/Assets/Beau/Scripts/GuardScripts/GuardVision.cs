@@ -14,6 +14,8 @@ public class GuardVision : MonoBehaviour
     float visionRange;
     Color color;
 
+    [SerializeField] LayerMask mask;
+
     GuardMove guardMoveScript;
     bool playerInSight;
 
@@ -49,7 +51,7 @@ public class GuardVision : MonoBehaviour
                 color = Color.blue;
 
                 RaycastHit hit;
-                if (Physics.Raycast(lookPos.position, other.transform.position - lookPos.position, out hit, 100, -5, QueryTriggerInteraction.Ignore))
+                if (Physics.Raycast(lookPos.position, other.transform.position - lookPos.position, out hit, 100, mask, QueryTriggerInteraction.Ignore))
                 {
                     if (hit.collider.tag == "Player")
                     {

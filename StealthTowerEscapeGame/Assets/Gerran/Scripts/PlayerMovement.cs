@@ -8,19 +8,21 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
 
     public float speed, crouchSpeed, proneSpeed, walkingSpeed, slideSpeed, slideTimer, slideTimerMax, runningSpeed;
-    public float gravity;
-    public float jumpHeight;
     public float curVelocity, walkHeight, crouchHeight, proneHeight;
 
     public Transform groundCheck;
     public float groundDistance;
     public LayerMask groundMask;
 
-    public Vector3 velocity, slideFoward;
-    public bool isGrounded, slideUnlocked, isSliding, isJumping;
+    public Vector3 slideFoward;
+    public bool slideUnlocked, isSliding, isJumping;
+    public float slideCooldown;
+    public bool canSlide = true;
 
     public GameObject cam;
     public Vector3 crouchCam, normalCam;
+
+    public Animator anim;
 
     // Update is called once per frame
     void Update()
@@ -30,34 +32,25 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        if(isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        
-        controller.Move(move * speed * Time.deltaTime);
+        move *= speed;
 
+        bool isGrounded = Physics.CheckSphere(groundCheck.position, .1f, groundMask, QueryTriggerInteraction.Ignore);
+        if (!isGrounded)
+            move.y = Physics.gravity.y;
 
+        controller.Move(move * Time.deltaTime);
 
-        if(Input.GetButton("Jump") && isGrounded)
+        if (canSlide && !isSliding && Input.GetButtonDown("Slide"))
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-        }
-
-
-        if ( isSliding == false && Input.GetButton("Slide"))
-        {
+            canSlide = false;
             isSliding = true;
-            slideTimer = 0f;
+            slideTimer = 0;
             slideFoward = transform.forward;
+            anim.SetBool("isSliding", true);
         }
         else if(isSliding == true)
         {
@@ -69,22 +62,33 @@ public class PlayerMovement : MonoBehaviour
             if (slideTimer > slideTimerMax)
             {
                 isSliding = false;
+                controller.height = walkHeight;
+                speed = walkingSpeed;
+                anim.SetBool("isSliding", false);
+                Invoke("SlideCooldown", slideCooldown);
             }
         }
-        else if(isSliding == false)
+        if(isSliding && Input.GetButtonUp("Slide"))
         {
+            isSliding = false;
             controller.height = walkHeight;
             speed = walkingSpeed;
+            anim.SetBool("isSliding", false);
+            Invoke("SlideCooldown", slideCooldown);
         }
 
-        if(Input.GetButton("Run"))
+        if (Input.GetButton("Run"))
         {
             speed = runningSpeed;
+            ResetAnims();
+            anim.SetBool("isSprinting", true);
         }
         else if (Input.GetButton("Crouch") && isSliding == false)
         {
             controller.height = crouchHeight;
             speed = crouchSpeed;
+            ResetAnims();
+            anim.SetBool("isCrouched", true);
         }
         else if (Input.GetButton("Prone") && isSliding == false)
         {
@@ -92,18 +96,30 @@ public class PlayerMovement : MonoBehaviour
             controller.height = proneHeight;
             controller.radius = .1f;
             speed = proneSpeed;
+            anim.SetBool("isCrouched", true);
         }
 
-        else if(isSliding == false)
+        if (Input.GetButtonUp("Run"))
         {
-            cam.transform.localPosition = normalCam;
-            controller.height = walkHeight;
-            controller.radius = .3f;
-            speed = walkingSpeed;
+            anim.SetBool("isSprinting", false);
         }
-
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
+        if (Input.GetButtonUp("Crouch"))
+        {
+            anim.SetBool("isCrouched", false);
+        }
+        if (Input.GetButtonUp("Prone"))
+        {
+            anim.SetBool("isCrouched", false);
+        }
+    }
+    void SlideCooldown()
+    {
+        canSlide = true;
+    }
+    void ResetAnims()
+    {
+        anim.SetBool("isSprinting", false);
+        anim.SetBool("isCrouched", false);
+        anim.SetBool("isSliding", false);
     }
 }

@@ -1,11 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
 public class PhoneManager : MonoBehaviour
 {
     [SerializeField] GameObject[] panels;
-	public void PressHome()
+    [SerializeField] TMP_Text timeText;
+    private void Update()
+    {
+        double t = (double)Time.timeSinceLevelLoad;
+        TimeSpan time = TimeSpan.FromSeconds(t);
+        print(string.Format("{0:D2}:{1:D2}:{2:D2}", time.Hours, time.Minutes, time.Seconds));
+        string displayTime = string.Format("{0:D2}:{1:D2}", time.Hours, time.Minutes);
+
+        timeText.text = displayTime;
+    }
+    public void PressHome()
     {
         SelectApp("home");
     }
@@ -20,6 +32,10 @@ public class PhoneManager : MonoBehaviour
     public void ButtonSkillTree()
     {
         SelectApp("skillTree");
+    }
+    public void ButtonMessager()
+    {
+        SelectApp("messager");
     }
 
     void SelectApp(string name)

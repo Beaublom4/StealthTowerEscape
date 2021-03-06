@@ -1857,6 +1857,9 @@ MonoBehaviour:
   lookPosVisualLine:
   - {fileID: 6850705449192062765}
   - {fileID: 6415642464816556367}
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   lostPlayerSearchTime: 3
 --- !u!1 &5932760352223675262
 GameObject:
