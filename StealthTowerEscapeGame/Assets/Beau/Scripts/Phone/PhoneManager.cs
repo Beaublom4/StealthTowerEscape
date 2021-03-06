@@ -8,6 +8,7 @@ public class PhoneManager : MonoBehaviour
 {
     [SerializeField] GameObject[] panels;
     [SerializeField] TMP_Text timeText;
+    [SerializeField] AudioSource hover, press;
     private void Update()
     {
         double t = (double)Time.timeSinceLevelLoad;
@@ -19,22 +20,37 @@ public class PhoneManager : MonoBehaviour
     public void PressHome()
     {
         SelectApp("home");
+        Press();
     }
     public void PressBack()
     {
         print("Test");
+        Press();
     }
     public void ButtonMap()
     {
         SelectApp("map");
+        Press();
     }
     public void ButtonSkillTree()
     {
         SelectApp("skillTree");
+        Press();
     }
     public void ButtonMessager()
     {
         SelectApp("messager");
+        Press();
+    }
+    public void ButtonSounds()
+    {
+        SelectApp("sounds");
+        Press();
+    }
+    public void ButtonSettings()
+    {
+        SelectApp("settings");
+        Press();
     }
 
     void SelectApp(string name)
@@ -47,5 +63,13 @@ public class PhoneManager : MonoBehaviour
             else
                 g.SetActive(true);
         }
+    }
+    public void Press()
+    {
+        press.Play();
+    }
+    public void Hover()
+    {
+        hover.Play();
     }
 }

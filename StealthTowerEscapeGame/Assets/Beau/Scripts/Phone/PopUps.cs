@@ -5,8 +5,11 @@ using UnityEngine;
 public class PopUps : MonoBehaviour
 {
 	public GameObject message;
+	public AudioSource messageSound, vibrateSound;
 	public void Message() 
 	{
+		messageSound.Play();
+		vibrateSound.Play();
 		message.transform.SetAsFirstSibling();
 		message.gameObject.SetActive(true);
 	}
