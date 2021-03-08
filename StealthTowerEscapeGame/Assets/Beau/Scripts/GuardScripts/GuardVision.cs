@@ -20,7 +20,7 @@ public class GuardVision : MonoBehaviour
     bool playerInSight;
 
     [SerializeField] float lostPlayerSearchTime;
-    IEnumerator lostPlayerCoroutine;
+    IEnumerator coroutineLostPlayer;
 
     private void Awake()
     {
@@ -67,17 +67,17 @@ public class GuardVision : MonoBehaviour
                             }
                         }
                     }
-                    else if(guardMoveScript.canStopAttacking)
+                    else if(playerInSight)
                     {
                         PlayerOutSight(other.gameObject);
                     }
                 }
-                else if (guardMoveScript.canStopAttacking)
+                else if (playerInSight)
                 {
                     PlayerOutSight(other.gameObject);
                 }
             }
-            else if(guardMoveScript.canStopAttacking)
+            else if(playerInSight)
             {
                 PlayerOutSight(other.gameObject);
             }
@@ -146,14 +146,16 @@ public class GuardVision : MonoBehaviour
     }
     void PlayerOutSight(GameObject player)
     {
-        if (lostPlayerCoroutine != null)
-            StopCoroutine(lostPlayerCoroutine);
-        lostPlayerCoroutine = LostPlayerVision();
-        StartCoroutine(lostPlayerCoroutine);
-        player.GetComponent<PlayerGetSpotted>().DecreaseSpottedMeter();
+        if (coroutineLostPlayer != null)
+            StopCoroutine(coroutineLostPlayer);
+        coroutineLostPlayer = LostPlayerVision(player);
+        StartCoroutine(coroutineLostPlayer);
     }
-    IEnumerator LostPlayerVision()
+    IEnumerator LostPlayerVision(GameObject player)
     {
+        playerInSight = false;
+        player.GetComponent<PlayerGetSpotted>().DecreaseSpottedMeter();
+        yield return new WaitForSeconds(2);
         guardMoveScript.StopSearchForPlayer();
         yield return new WaitForSeconds(lostPlayerSearchTime);
         guardMoveScript.ReturnToPath();
@@ -161,6 +163,8 @@ public class GuardVision : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (!guardMoveScript.isAttacking)
+            return;
         if(other.tag == "Player")
         {
             PlayerOutSight(other.gameObject);

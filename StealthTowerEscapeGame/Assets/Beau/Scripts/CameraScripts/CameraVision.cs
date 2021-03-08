@@ -15,6 +15,8 @@ public class CameraVision : MonoBehaviour
 
     Color color;
 
+    [SerializeField] LayerMask mask, guardMask;
+
     private void Awake()
     {
         lookPosVisualLine[0].localRotation = Quaternion.Euler(0, fieldOfView * .5f, 0);
@@ -39,7 +41,6 @@ public class CameraVision : MonoBehaviour
         if (other.tag == "Player")
         {
             color = Color.white;
-
             Vector3 direction = (other.transform.position - transform.position).normalized;
             float angle = (Vector3.Angle(direction, transform.forward));
 
@@ -48,47 +49,62 @@ public class CameraVision : MonoBehaviour
                 color = Color.blue;
 
                 RaycastHit hit;
-                if (Physics.Raycast(lookPos.position, other.transform.position - lookPos.position, out hit, 100, -5, QueryTriggerInteraction.Ignore))
+                if (Physics.Raycast(lookPos.position, other.transform.position - lookPos.position, out hit, 20, mask, QueryTriggerInteraction.Ignore))
                 {
                     if (hit.collider.tag == "Player")
                     {
                         color = Color.green;
 
-                        if (playerInSight == false)
+                        if(!hit.collider.GetComponent<PlayerGetSpotted>().isSpotted)
                         {
-                            print("spotted");
                             playerInSight = true;
-                            other.GetComponent<PlayerGetSpotted>().IncreaseSpottedMeter(spotSpeed);
+                            hit.collider.GetComponent<PlayerGetSpotted>().IncreaseSpottedMeter(spotSpeed);
+                        }
+                        else
+                        {
+                            Collider[] guards = Physics.OverlapSphere(transform.position, 15, guardMask);
+                            foreach (Collider guard in guards)
+                            {
+                                if (guard.tag != "Enemy")
+                                    continue;
+                                guard.GetComponent<GuardMove>().AttackPlayer(other.gameObject);
+                            }
                         }
                     }
-                    else if (playerInSight == true)
+                    else if (playerInSight)
                     {
-                        TurnPlayerInSightFalse(other.gameObject);
+                        PlayerOutVision(other.gameObject);
                     }
                 }
-                else if (playerInSight == true)
+                else if (playerInSight)
                 {
-                    TurnPlayerInSightFalse(other.gameObject);
+                    PlayerOutVision(other.gameObject);
                 }
             }
-            else if (playerInSight == true)
+            else if (playerInSight)
             {
-                TurnPlayerInSightFalse(other.gameObject);
+                PlayerOutVision(other.gameObject);
             }
             DrawVisionRay(other.gameObject);
         }
     }
-    void DrawVisionRay(GameObject player)
+    private void OnTriggerExit(Collider other)
     {
-        Debug.DrawRay(lookPos.position, player.transform.position - lookPos.position, color);
+        if (other.tag != "Player")
+            return;
+        if (playerInSight)
+        {
+            PlayerOutVision(other.gameObject);
+        }
     }
-    void TurnPlayerInSightFalse(GameObject player)
+
+    void PlayerOutVision(GameObject player)
     {
         playerInSight = false;
         player.GetComponent<PlayerGetSpotted>().DecreaseSpottedMeter();
     }
-    public void AttackPlayer()
+    void DrawVisionRay(GameObject player)
     {
-        print("Attack player by cam");
+        Debug.DrawRay(lookPos.position, player.transform.position - lookPos.position, color);
     }
 }
