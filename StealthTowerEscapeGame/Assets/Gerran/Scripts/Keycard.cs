@@ -25,13 +25,13 @@ public class Keycard : MonoBehaviour
 
         if(Physics.Raycast(camTrans.position, transform.forward, out hit, range))
         {
-            if(Input.GetButton("Fire1") && hit.transform.tag == "Keycard" && hasKeycard == false)
+            if(Input.GetKeyDown("e") && hit.transform.tag == "Keycard" && hasKeycard == false)
             {
                 hasKeycard = true;
                 Destroy(hit.transform.gameObject);
             }
 
-            if(hit.transform.tag == "Scanner" && Input.GetButton("Fire1") && hasKeycard == true)
+            if(hit.transform.tag == "Scanner" && Input.GetKeyDown("e") && hasKeycard == true)
             {
                 hasKeycard = false;
                 Destroy(door);

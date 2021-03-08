@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     public Vector3 slideFoward;
-    public bool slideUnlocked, isSliding, isJumping;
+    public bool slideUnlocked, isSliding, isJumping, canStandup;
     public float slideCooldown;
     public bool canSlide = true;
 
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * Time.deltaTime);
 
-        if (canSlide && !isSliding && Input.GetButtonDown("Slide"))
+        if (canSlide && !isSliding && Input.GetButtonDown("Crouch") && Input.GetButton("Run"))
         {
             canSlide = false;
             isSliding = true;
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
                 Invoke("SlideCooldown", slideCooldown);
             }
         }
-        if(isSliding && Input.GetButtonUp("Slide"))
+        if(isSliding && Input.GetButtonUp("Crouch") && Input.GetButtonUp("Run"))
         {
             isSliding = false;
             controller.height = walkHeight;
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke("SlideCooldown", slideCooldown);
         }
 
-        if (Input.GetButton("Run"))
+        if (Input.GetButton("Run") && isSliding == false)
         {
             speed = runningSpeed;
             ResetAnims();

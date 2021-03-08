@@ -40,7 +40,7 @@ public class FlyingObj : MonoBehaviour
 
                 }
 
-                if (Input.GetButton("Fire1"))
+                if (Input.GetKeyDown("g"))
                 {
                     if (hasPickedUp == true)
                     {
@@ -59,7 +59,7 @@ public class FlyingObj : MonoBehaviour
                 }
             }
 
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetKeyDown("e"))
             {
                 if (hit.transform.tag == "Door")
                 {
