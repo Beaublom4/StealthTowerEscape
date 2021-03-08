@@ -5,8 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 	public float dmg;
-    public LayerMask mask;
-    public GameObject blood, dust;
+    public LayerMask mask, defaultMask;
+    public GameObject blood;
 
     private void Start()
     {
@@ -23,8 +23,8 @@ public class Bullet : MonoBehaviour
                 other.GetComponent<Health>().GetDamage(dmg);
                 blood.GetComponent<ParticleSystem>().Play();
                 blood.GetComponent<AudioSource>().Play();
-                Destroy(gameObject, 1);
             }
+            Destroy(gameObject, 1);
         }
     }
 }

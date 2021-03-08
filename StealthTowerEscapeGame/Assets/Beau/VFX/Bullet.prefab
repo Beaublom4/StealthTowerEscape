@@ -208,8 +208,11 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 2817
+  defaultMask:
+    serializedVersion: 2
+    m_Bits: 1
   blood: {fileID: 6071936724735842401}
-  dust: {fileID: 0}
+  dust: {fileID: 1284013428112544455, guid: 11562d59145e24e4099f256c6f9f3e90, type: 3}
 --- !u!1001 &3890455442864765531
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class CameraVision : MonoBehaviour
 {
     [SerializeField] float spotSpeed;
     [SerializeField] float fieldOfView;
+    [SerializeField] Light spot;
 
     [SerializeField] Transform lookPos;
     [SerializeField] Transform[] lookPosVisualLine;
@@ -16,6 +17,8 @@ public class CameraVision : MonoBehaviour
     Color color;
 
     [SerializeField] LayerMask mask, guardMask;
+
+    IEnumerator coroutineRedCam;
 
     private void Awake()
     {
@@ -62,6 +65,11 @@ public class CameraVision : MonoBehaviour
                         }
                         else
                         {
+                            if (coroutineRedCam != null)
+                                StopCoroutine(coroutineRedCam);
+                            coroutineRedCam = RedCam();
+                            StartCoroutine(coroutineRedCam);
+
                             Collider[] guards = Physics.OverlapSphere(transform.position, 15, guardMask);
                             foreach (Collider guard in guards)
                             {
@@ -98,6 +106,12 @@ public class CameraVision : MonoBehaviour
         }
     }
 
+    IEnumerator RedCam()
+    {
+        spot.color = Color.red;
+        yield return new WaitForSeconds(5);
+        spot.color = Color.white;
+    }
     void PlayerOutVision(GameObject player)
     {
         playerInSight = false;

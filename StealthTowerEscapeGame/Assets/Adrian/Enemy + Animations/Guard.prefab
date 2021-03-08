@@ -840,7 +840,6 @@ MonoBehaviour:
   spottedPlayer: 0
   lostPlayer: 0
   isAttacking: 0
-  canStopAttacking: 0
   spotSignObj: {fileID: 2676090174695031259}
   shootTrigger: {fileID: 997001020374643627}
   flashLight: {fileID: 3633243725417349316}
@@ -2329,7 +2328,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 19.91
+  m_Intensity: 6
   m_Range: 7
   m_SpotAngle: 115.262146
   m_InnerSpotAngle: 0

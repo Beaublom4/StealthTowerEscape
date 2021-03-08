@@ -65,7 +65,7 @@ public class GuardShoot : MonoBehaviour
                 guard.GetComponent<GuardMove>().AttackPlayer(player);
         }
 
-        GameObject bullet = Instantiate(shotTrail, shootPos.position, Quaternion.LookRotation(player.transform.position - transform.position),null);
+        GameObject bullet = Instantiate(shotTrail, shootPos.position, Quaternion.LookRotation(player.transform.position - shootPos.position),null);
         bullet.GetComponent<Bullet>().dmg = gun.damage;
         bullet.GetComponent<Rigidbody>().AddRelativeForce(0, 0, 1500);
         triggerCol.radius -= 0.1f;
