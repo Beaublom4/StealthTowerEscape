@@ -29,6 +29,7 @@ public class FlyingObj : MonoBehaviour
                     knife.enabled = false;
                     anim.SetTrigger("PickUp");
                     hasPickedUp = true;
+                    hit.collider.GetComponent<Item>().canPlay = false;
                     hit.transform.GetComponent<Rigidbody>().useGravity = true;
                     hit.transform.position = pickupTrans.position;
                     hit.transform.parent = dest.transform;
@@ -42,6 +43,7 @@ public class FlyingObj : MonoBehaviour
                         print("throw test");
                         knife.enabled = true;
                         anim.SetTrigger("Drop");
+                        hit.collider.GetComponent<Item>().canPlay = true;
                         hit.transform.parent = null;
                         hit.transform.GetComponent<Rigidbody>().useGravity = true;
                         hit.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
