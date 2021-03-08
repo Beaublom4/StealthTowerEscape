@@ -9,8 +9,8 @@ public class Melee : MonoBehaviour
     public float range, damage, backstabDamage, cooldown;
     public Transform crTrans;
     public LayerMask mask;
-    public AudioSource knifeSource;
-    public AudioClip knifeWall, knifeEnemy;
+    public AudioSource knifeSource, fistSource;
+    public AudioClip knifeWall, knifeEnemy, punchWall, punchEnemy;
 
     IEnumerator coroutine;
     public SkinnedMeshRenderer smr;
@@ -24,7 +24,9 @@ public class Melee : MonoBehaviour
     public Animator anim;
 
     public Transform hitKnifePos;
-    public GameObject HitParticles;
+    public GameObject bloodParticles;
+
+    public GameObject knife;
 
     private void Awake()
     {
@@ -34,6 +36,23 @@ public class Melee : MonoBehaviour
     {
         if (canHit && Input.GetButtonDown("Fire1"))
         {
+            RaycastHit hit;
+            if (Physics.Raycast(crTrans.position, cam.forward, out hit, range, mask, QueryTriggerInteraction.Ignore))
+            {
+                print(hit.transform.tag);
+                if (hit.transform.tag == "Backstab")
+                {
+                    anim.SetBool("BackStab", true);
+                }
+                else
+                {
+                    anim.SetBool("BackStab", false);
+                }
+            }
+            else
+            {
+                anim.SetBool("BackStab", false);
+            }
             canHit = false;
             Invoke("HitCooldown", cooldown);
             anim.SetTrigger("Hit");
@@ -59,9 +78,7 @@ public class Melee : MonoBehaviour
             if (hit.transform.tag == "Backstab")
             {
                 print("backstab");
-                knifeSource.clip = knifeEnemy;
-                knifeSource.volume = .7f;
-                knifeSource.Play();
+                PlaySound(true);
                 hit.transform.gameObject.GetComponentInParent<EnemyHealth>().GetDamage(backstabDamage);
                 BloodOnKnife();
                 SpawnParticles();
@@ -69,9 +86,7 @@ public class Melee : MonoBehaviour
             else if (hit.transform.tag == "Enemy")
             {
                 print("normal");
-                knifeSource.clip = knifeEnemy;
-                knifeSource.volume = .7f;
-                knifeSource.Play();
+                PlaySound(true);
                 hit.transform.gameObject.GetComponent<EnemyHealth>().GetDamage(damage);
                 BloodOnKnife();
                 SpawnParticles();
@@ -82,10 +97,39 @@ public class Melee : MonoBehaviour
                 ParticleSystem.MainModule main = g.GetComponent<ParticleSystem>().main;
                 main.startColor = GetHitColor(hit);
                 Destroy(g, 3);
-
+                PlaySound(false);
+            }
+        }
+    }
+    void PlaySound(bool hitEnemy)
+    {
+        print(hitEnemy);
+        if (hitEnemy)
+        {
+            if (knife.activeSelf)
+            {
+                knifeSource.clip = knifeEnemy;
+                knifeSource.volume = .7f;
+                knifeSource.Play();
+            }
+            else
+            {
+                fistSource.clip = punchEnemy;
+                fistSource.Play();
+            }
+        }
+        else
+        {
+            if (knife.activeSelf)
+            {
                 knifeSource.clip = knifeWall;
                 knifeSource.volume = 1;
                 knifeSource.Play();
+            }
+            else
+            {
+                fistSource.clip = punchWall;
+                fistSource.Play();
             }
         }
     }
@@ -95,7 +139,7 @@ public class Melee : MonoBehaviour
     }
     void SpawnParticles()
     {
-        Destroy(Instantiate(HitParticles, hitKnifePos.position, Quaternion.identity, null), 3);
+        Destroy(Instantiate(bloodParticles, hitKnifePos.position, Quaternion.identity, null), 3);
     }
     void BloodOnKnife()
     {

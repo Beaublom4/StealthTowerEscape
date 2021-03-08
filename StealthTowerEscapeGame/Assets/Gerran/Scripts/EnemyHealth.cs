@@ -17,6 +17,9 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(transform.gameObject);
         }
-        GetComponentInParent<GuardMove>().AttackPlayer(player);
+        else
+        {
+            GetComponentInParent<GuardMove>().AttackPlayer(player);
+        }
     }
 }

@@ -48,6 +48,8 @@ public class GuardShoot : MonoBehaviour
         Collider[] guards = Physics.OverlapSphere(transform.position, 15, guardMask);
         foreach(Collider guard in guards)
         {
+            if (guard.tag != "Enemy")
+                return;
             if(guard != moveScript.gameObject.GetComponent<Collider>())
                 guard.GetComponent<GuardMove>().AttackPlayer(player);
         }

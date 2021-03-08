@@ -15,7 +15,7 @@ public class BloodParticle : MonoBehaviour
         int i = 0;
         while(i < numCollissionEvents)
         {
-            GameObject g = Instantiate(bloodSplat, collisionEvents[i].intersection, Quaternion.LookRotation(collisionEvents[i].intersection), null);
+            GameObject g = Instantiate(bloodSplat, collisionEvents[i].intersection, Quaternion.identity, null);
             float randomSize = UnityEngine.Random.Range(sizeMin, sizeMax);
             Math.Round(randomSize, 1);
             g.transform.localScale = new Vector3(randomSize, randomSize, randomSize);
