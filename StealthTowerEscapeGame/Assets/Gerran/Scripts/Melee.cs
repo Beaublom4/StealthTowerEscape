@@ -39,7 +39,6 @@ public class Melee : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(crTrans.position, cam.forward, out hit, range, mask, QueryTriggerInteraction.Ignore))
             {
-                print(hit.transform.tag);
                 if (hit.transform.tag == "Backstab")
                 {
                     anim.SetBool("BackStab", true);
@@ -103,7 +102,6 @@ public class Melee : MonoBehaviour
     }
     void PlaySound(bool hitEnemy)
     {
-        print(hitEnemy);
         if (hitEnemy)
         {
             if (knife.activeSelf)

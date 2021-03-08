@@ -11,7 +11,6 @@ public class PlayerGetSpotted : MonoBehaviour
     [SerializeField] Slider spotSlider;
     bool transition;
 
-    GameObject spotObj;
     float increaseSpeed;
     [HideInInspector] public bool increase, isSpotted;
     private void Update()
@@ -32,7 +31,6 @@ public class PlayerGetSpotted : MonoBehaviour
         {
             isSpotted = false;
             spottedMeter -= decreasingSpeed * Time.deltaTime;
-            spotObj = null;
             spottedMeter = Mathf.Clamp(spottedMeter, 0, 100);
             spotSlider.value = spottedMeter;
         }
@@ -41,9 +39,8 @@ public class PlayerGetSpotted : MonoBehaviour
             spotSlider.gameObject.SetActive(false);
         }
     }
-    public void IncreaseSpottedMeter(float _increaseSpeed, GameObject _spotObj)
+    public void IncreaseSpottedMeter(float _increaseSpeed)
     {
-        spotObj = _spotObj;
         increaseSpeed = _increaseSpeed;
         increase = true;
     }

@@ -373,6 +373,7 @@ MonoBehaviour:
   gun: {fileID: 11400000, guid: 3100619afb2688a4fa7c99eb49a8dc2c, type: 2}
   guns:
   - {fileID: 2973773049984056899}
+  shootPos: {fileID: 0}
   guardMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -839,6 +840,7 @@ MonoBehaviour:
   spottedPlayer: 0
   lostPlayer: 0
   isAttacking: 0
+  canStopAttacking: 0
   spotSignObj: {fileID: 2676090174695031259}
   shootTrigger: {fileID: 997001020374643627}
   flashLight: {fileID: 3633243725417349316}
@@ -2088,8 +2090,8 @@ MonoBehaviour:
   - {fileID: 6415642464816556367}
   mask:
     serializedVersion: 2
-    m_Bits: 4294967295
-  lostPlayerSearchTime: 3
+    m_Bits: 6967
+  lostPlayerSearchTime: 5
 --- !u!1 &5932760352223675262
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class GuardMove : MonoBehaviour
     Vector3 lastPlayerLoc;
 
     public bool spottedPlayer, lostPlayer;
-    public bool isAttacking;
+    public bool isAttacking, canStopAttacking;
 
     [SerializeField] GameObject spotSignObj;
     IEnumerator coroutine;
@@ -90,8 +90,9 @@ public class GuardMove : MonoBehaviour
         print("Lost player");
         isAttacking = false;
         spottedPlayer = false;
+        canStopAttacking = false;
 
-       shootTrigger.SetActive(false);
+        shootTrigger.SetActive(false);
 
         lastPlayerLoc = playerLoc.position;
         agent.SetDestination(lastPlayerLoc);
@@ -106,6 +107,7 @@ public class GuardMove : MonoBehaviour
 
         isAttacking = true;
         spottedPlayer = false;
+        Invoke("CanStopAttacking", 3);
 
         if (coroutine != null)
             StopCoroutine(coroutine);
@@ -117,6 +119,10 @@ public class GuardMove : MonoBehaviour
         shootTrigger.SetActive(true);
 
         agent.isStopped = false;
+    }
+    void CanStopAttacking()
+    {
+        canStopAttacking = true;
     }
     IEnumerator ShowMark()
     {

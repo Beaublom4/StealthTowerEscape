@@ -42,6 +42,53 @@ public class GuardVision : MonoBehaviour
         if (other.tag == "Player")
         {
             color = Color.white;
+            Vector3 direction = (other.transform.position - transform.position).normalized;
+            float angle = (Vector3.Angle(direction, transform.forward));
+
+            if(angle < fieldOfView * .5f)
+            {
+                color = Color.blue;
+
+                RaycastHit hit;
+                if(Physics.Raycast(lookPos.position, other.transform.position - lookPos.position, out hit, 20, mask, QueryTriggerInteraction.Ignore))
+                {
+                    if (hit.collider.tag == "Player")
+                    {
+                        color = Color.green;
+
+                        if (!guardMoveScript.isAttacking)
+                        {
+                            playerInSight = true;
+                            other.GetComponent<PlayerGetSpotted>().IncreaseSpottedMeter(spotSpeed);
+                            guardMoveScript.SpottedPlayer(other.transform);
+                            if(other.GetComponent<PlayerGetSpotted>().spottedMeter >= 100)
+                            {
+                                guardMoveScript.AttackPlayer(other.gameObject);
+                            }
+                        }
+                    }
+                    else if(guardMoveScript.canStopAttacking)
+                    {
+                        PlayerOutSight(other.gameObject);
+                    }
+                }
+                else if (guardMoveScript.canStopAttacking)
+                {
+                    PlayerOutSight(other.gameObject);
+                }
+            }
+            else if(guardMoveScript.canStopAttacking)
+            {
+                PlayerOutSight(other.gameObject);
+            }
+            DrawVisionRay(other.gameObject);
+        }
+
+        #region Vision
+        /*
+        if (other.tag == "Player")
+        {
+            color = Color.white;
 
             Vector3 direction = (other.transform.position - transform.position).normalized;
             float angle = (Vector3.Angle(direction, transform.forward));
@@ -90,39 +137,25 @@ public class GuardVision : MonoBehaviour
             }
             DrawVisionRay(other.gameObject);
         }
+        */
+        #endregion
     }
     void DrawVisionRay(GameObject player)
     {
         Debug.DrawRay(lookPos.position, player.transform.position - lookPos.position, color);
     }
-    void PlayerInSightToFalse(GameObject player)
+    void PlayerOutSight(GameObject player)
     {
-        playerInSight = false;
+        if (lostPlayerCoroutine != null)
+            StopCoroutine(lostPlayerCoroutine);
+        lostPlayerCoroutine = LostPlayerVision();
+        StartCoroutine(lostPlayerCoroutine);
         player.GetComponent<PlayerGetSpotted>().DecreaseSpottedMeter();
-
-        if(guardMoveScript.spottedPlayer == true)
-        {
-            guardMoveScript.spottedPlayer = false;
-            if (lostPlayerCoroutine != null)
-                StopCoroutine(lostPlayerCoroutine);
-            lostPlayerCoroutine = LostPlayerVision();
-            StartCoroutine(lostPlayerCoroutine);
-        }
-        else if(guardMoveScript.isAttacking == true)
-        {
-            guardMoveScript.isAttacking = false;
-            if (lostPlayerCoroutine != null)
-                StopCoroutine(lostPlayerCoroutine);
-            lostPlayerCoroutine = LostPlayerVision();
-            StartCoroutine(lostPlayerCoroutine);
-        }
     }
     IEnumerator LostPlayerVision()
     {
-        guardMoveScript.lostPlayer = true;
         guardMoveScript.StopSearchForPlayer();
         yield return new WaitForSeconds(lostPlayerSearchTime);
-        guardMoveScript.lostPlayer = false;
         guardMoveScript.ReturnToPath();
     }
 
@@ -130,7 +163,7 @@ public class GuardVision : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            PlayerInSightToFalse(other.gameObject);
+            PlayerOutSight(other.gameObject);
         }
     }
 }

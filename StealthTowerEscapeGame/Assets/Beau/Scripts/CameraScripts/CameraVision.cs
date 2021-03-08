@@ -58,7 +58,7 @@ public class CameraVision : MonoBehaviour
                         {
                             print("spotted");
                             playerInSight = true;
-                            other.GetComponent<PlayerGetSpotted>().IncreaseSpottedMeter(spotSpeed, transform.parent.gameObject);
+                            other.GetComponent<PlayerGetSpotted>().IncreaseSpottedMeter(spotSpeed);
                         }
                     }
                     else if (playerInSight == true)
