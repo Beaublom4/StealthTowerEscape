@@ -12,6 +12,11 @@ public class Melee : MonoBehaviour
     public AudioSource knifeSource;
     public AudioClip knifeWall, knifeEnemy;
 
+    IEnumerator coroutine;
+    public SkinnedMeshRenderer smr;
+    public Material blood;
+    bool returnBlood;
+
     public GameObject hitParticle;
     public Color color;
 
@@ -21,6 +26,10 @@ public class Melee : MonoBehaviour
     public Transform hitKnifePos;
     public GameObject HitParticles;
 
+    private void Awake()
+    {
+        blood = smr.materials[1];
+    }
     void Update()
     {
         if (canHit && Input.GetButtonDown("Fire1"))
@@ -28,6 +37,18 @@ public class Melee : MonoBehaviour
             canHit = false;
             Invoke("HitCooldown", cooldown);
             anim.SetTrigger("Hit");
+        }
+        if (returnBlood)
+        {
+            print("test");
+            Color c = blood.color;
+            c.a -= Time.deltaTime;
+            if (c.a < 0)
+            {
+                returnBlood = false;
+                c.a = 0;
+            }
+            blood.color = c;
         }
     }
     public void DoHit()
@@ -42,6 +63,7 @@ public class Melee : MonoBehaviour
                 knifeSource.volume = .7f;
                 knifeSource.Play();
                 hit.transform.gameObject.GetComponentInParent<EnemyHealth>().GetDamage(backstabDamage);
+                BloodOnKnife();
                 SpawnParticles();
             }
             else if (hit.transform.tag == "Enemy")
@@ -51,6 +73,7 @@ public class Melee : MonoBehaviour
                 knifeSource.volume = .7f;
                 knifeSource.Play();
                 hit.transform.gameObject.GetComponent<EnemyHealth>().GetDamage(damage);
+                BloodOnKnife();
                 SpawnParticles();
             }
             else
@@ -74,6 +97,13 @@ public class Melee : MonoBehaviour
     {
         Destroy(Instantiate(HitParticles, hitKnifePos.position, Quaternion.identity, null), 3);
     }
+    void BloodOnKnife()
+    {
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = Blood();
+        StartCoroutine(coroutine);
+    }
 
     Color GetHitColor(RaycastHit hit)
     {
@@ -91,5 +121,12 @@ public class Melee : MonoBehaviour
         {
             return hit.transform.GetComponent<MeshRenderer>().material.color;
         }
+    }
+    IEnumerator Blood()
+    {
+        returnBlood = false;
+        blood.color = Color.white;
+        yield return new WaitForSeconds(5);
+        returnBlood = true;
     }
 }
