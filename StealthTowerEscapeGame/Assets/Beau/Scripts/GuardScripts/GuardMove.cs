@@ -41,11 +41,13 @@ public class GuardMove : MonoBehaviour
     {
         if (spottedPlayer == true)
         {
-            transform.LookAt(new Vector3(playerLoc.position.x, transform.position.y, playerLoc.position.z));
+            Quaternion lR = Quaternion.LookRotation((new Vector3(playerLoc.position.x, transform.position.y, playerLoc.position.z) - transform.position).normalized);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lR, 3 * Time.deltaTime);
         }
         if (isAttacking == true)
         {
-            transform.LookAt(new Vector3(playerLoc.position.x, transform.position.y, playerLoc.position.z));
+            Quaternion lR = Quaternion.LookRotation((new Vector3(playerLoc.position.x, transform.position.y, playerLoc.position.z) - transform.position).normalized);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lR, 3 * Time.deltaTime);
             agent.SetDestination(playerLoc.transform.position);
         }
     }

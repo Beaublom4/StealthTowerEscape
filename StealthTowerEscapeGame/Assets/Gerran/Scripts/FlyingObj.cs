@@ -12,15 +12,9 @@ public class FlyingObj : MonoBehaviour
 
     public bool hasPickedUp;
 
+    public SkinnedMeshRenderer knife;
+    public Animator anim;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         RaycastHit hit;
@@ -32,6 +26,8 @@ public class FlyingObj : MonoBehaviour
                 if(Input.GetButton("Fire2") && hasPickedUp == false)
                 {
                     print("getem");
+                    knife.enabled = false;
+                    anim.SetTrigger("PickUp");
                     hasPickedUp = true;
                     hit.transform.GetComponent<Rigidbody>().useGravity = true;
                     hit.transform.position = pickupTrans.position;
@@ -39,26 +35,25 @@ public class FlyingObj : MonoBehaviour
                     hit.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
                 }
-
                 if (Input.GetKeyDown("g"))
                 {
                     if (hasPickedUp == true)
                     {
                         print("throw test");
+                        knife.enabled = true;
+                        anim.SetTrigger("Drop");
                         hit.transform.parent = null;
                         hit.transform.GetComponent<Rigidbody>().useGravity = true;
                         hit.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                         hasPickedUp = false;
                         hit.transform.GetComponent<Rigidbody>().velocity = transform.forward * (velosity * speed) * Time.deltaTime;
                     }
-
                     else
                     {
                         hit.rigidbody.velocity = transform.forward * (velosity * speed) * Time.deltaTime;
                     }
                 }
             }
-
             if (Input.GetKeyDown("e"))
             {
                 if (hit.transform.tag == "Door")

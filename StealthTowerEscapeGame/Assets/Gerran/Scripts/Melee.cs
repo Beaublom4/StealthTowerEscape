@@ -81,7 +81,7 @@ public class Melee : MonoBehaviour
                 PlaySound(true);
                 hit.transform.gameObject.GetComponentInParent<EnemyHealth>().GetDamage(backstabDamage);
                 BloodOnKnife();
-                SpawnParticles();
+                SpawnParticles(hit.point);
             }
             else if (hit.transform.tag == "Enemy")
             {
@@ -89,7 +89,7 @@ public class Melee : MonoBehaviour
                 PlaySound(true);
                 hit.transform.gameObject.GetComponent<EnemyHealth>().GetDamage(damage);
                 BloodOnKnife();
-                SpawnParticles();
+                SpawnParticles(hit.point);
             }
             else
             {
@@ -137,9 +137,9 @@ public class Melee : MonoBehaviour
     {
         canHit = true;
     }
-    void SpawnParticles()
+    void SpawnParticles(Vector3 pos)
     {
-        Destroy(Instantiate(bloodParticles, hitKnifePos.position, Quaternion.identity, null), 3);
+        Destroy(Instantiate(bloodParticles, pos, Quaternion.identity, null), 3);
     }
     void BloodOnKnife()
     {

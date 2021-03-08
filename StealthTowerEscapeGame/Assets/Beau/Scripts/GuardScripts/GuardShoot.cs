@@ -6,12 +6,14 @@ public class GuardShoot : MonoBehaviour
 {
     [SerializeField] GuardMove moveScript;
     [SerializeField] bool shooting;
+
     [SerializeField] GunSOB gun;
+    [SerializeField] GameObject[] guns;
+    [SerializeField] Transform shootPos;
+
     [SerializeField] LayerMask guardMask, shootMask;
     [SerializeField] GameObject shotTrail;
     [SerializeField] AudioSource gunShot;
-
-    [SerializeField] Transform gunSpot;
 
     GameObject player;
     SphereCollider triggerCol;
@@ -21,6 +23,15 @@ public class GuardShoot : MonoBehaviour
         triggerCol = GetComponent<SphereCollider>();
         triggerCol.radius = gun.range;
         gunShot.clip = gun.shotSound;
+
+        foreach(GameObject g in guns)
+        {
+            if(g.GetComponent<Gun>().name == gun.name)
+            {
+                g.SetActive(true);
+                shootPos = g.GetComponent<Gun>().shootPos;
+            }
+        }
     }
     private void Start()
     {
@@ -49,12 +60,12 @@ public class GuardShoot : MonoBehaviour
         foreach(Collider guard in guards)
         {
             if (guard.tag != "Enemy")
-                return;
+                continue;
             if(guard != moveScript.gameObject.GetComponent<Collider>())
                 guard.GetComponent<GuardMove>().AttackPlayer(player);
         }
 
-        GameObject bullet = Instantiate(shotTrail, transform.position, Quaternion.LookRotation(player.transform.position - transform.position));
+        GameObject bullet = Instantiate(shotTrail, shootPos.position, Quaternion.LookRotation(player.transform.position - transform.position),null);
         bullet.GetComponent<Bullet>().dmg = gun.damage;
         bullet.GetComponent<Rigidbody>().AddRelativeForce(0, 0, 1500);
         triggerCol.radius -= 0.1f;

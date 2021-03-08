@@ -9442,7 +9442,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   anim: {fileID: 1857227664614012163}
   hitKnifePos: {fileID: 3335015740241310486}
-  HitParticles: {fileID: 7043197550340809274, guid: dda61e7e5c1f0614da60618056c22470,
+  bloodParticles: {fileID: 7043197550340809274, guid: dda61e7e5c1f0614da60618056c22470,
     type: 3}
   knife: {fileID: 3288859095235625438}
 --- !u!114 &8450285790008037161
@@ -9671,6 +9671,8 @@ MonoBehaviour:
   player: {fileID: 901653824019198765}
   dest: {fileID: 901653823798592766}
   hasPickedUp: 0
+  knife: {fileID: 8350654185339268957}
+  anim: {fileID: 1857227664614012163}
 --- !u!114 &901653824606624220
 MonoBehaviour:
   m_ObjectHideFlags: 0
