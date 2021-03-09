@@ -7,8 +7,8 @@ ModelImporter:
       74: -8945691123924629249
     second: Armature|Idle
   - first:
-      74: -7453387558714718212
-    second: Armature|Shoot
+      74: 1300770197434942443
+    second: Armature|shoot
   externalObjects: {}
   materials:
     materialImportMode: 1
