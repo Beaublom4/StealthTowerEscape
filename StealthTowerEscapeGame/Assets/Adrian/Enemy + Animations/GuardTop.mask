@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GuardTop
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.L
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.L/UpperLeg.L
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.L/UpperLeg.L/LowerLeg.L
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.L/UpperLeg.L/LowerLeg.L/UpperFoot.L
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.L/UpperLeg.L/LowerLeg.L/UpperFoot.L/FootTip.L
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.L/UpperLeg.L/LowerLeg.L/UpperFoot.L/FootTip.L/FootTip.L_end
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.R
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.R/UpperLeg.R
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.R/UpperLeg.R/LowerLeg.R
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.R/UpperLeg.R/LowerLeg.R/UpperFoot.R
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.R/UpperLeg.R/LowerLeg.R/UpperFoot.R/FootTip.R
+    m_Weight: 0
+  - m_Path: Armature/Legsbone.R/UpperLeg.R/LowerLeg.R/UpperFoot.R/FootTip.R/FootTip.R_end
+    m_Weight: 0
+  - m_Path: Armature/LowerBack
+    m_Weight: 0
+  - m_Path: Armature/LowerBack/UpperBack
+    m_Weight: 0
+  - m_Path: Armature/LowerBack/UpperBack/Neck
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Neck/Head
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Neck/Head/Head_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToMiddle.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToMiddle.L/UpperMiddle.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToMiddle.L/UpperMiddle.L/MiddleMiddle.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToMiddle.L/UpperMiddle.L/MiddleMiddle.L/MiddleTip.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToMiddle.L/UpperMiddle.L/MiddleMiddle.L/MiddleTip.L/MiddleTip.L_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToPinky.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToPinky.L/UpperPinky.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToPinky.L/UpperPinky.L/PinkyMiddle.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToPinky.L/UpperPinky.L/PinkyMiddle.L/PinkyTip.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToPinky.L/UpperPinky.L/PinkyMiddle.L/PinkyTip.L/PinkyTip.L_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToPoint.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToPoint.L/UpperPoint.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToPoint.L/UpperPoint.L/PointMiddle.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToPoint.L/UpperPoint.L/PointMiddle.L/PointTip.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToPoint.L/UpperPoint.L/PointMiddle.L/PointTip.L/PointTip.L_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToRing.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToRing.L/UpperRing.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToRing.L/UpperRing.L/RingMiddle.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToRing.L/UpperRing.L/RingMiddle.L/RingTip.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToRing.L/UpperRing.L/RingMiddle.L/RingTip.L/RingTip.L_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToThumb.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToThumb.L/UpperThumb.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToThumb.L/UpperThumb.L/ThumbTip.L
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/HandToThumb.L/UpperThumb.L/ThumbTip.L/ThumbTip.L_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/LowerArm.L.001
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/LowerArm.L.001/LowerArm.L.002
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/LowerArm.L.001/LowerArm.L.002/LowerArm.L.003
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.L/UpperArm.L/LowerArm.L/LowerArm.L.001/LowerArm.L.002/LowerArm.L.003/LowerArm.L.003_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToMiddle.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToMiddle.R/UpperMiddle.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToMiddle.R/UpperMiddle.R/MiddleMiddle.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToMiddle.R/UpperMiddle.R/MiddleMiddle.R/MiddleTip.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToMiddle.R/UpperMiddle.R/MiddleMiddle.R/MiddleTip.R/MiddleTip.R_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToPinky.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToPinky.R/UpperPinky.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToPinky.R/UpperPinky.R/PinkyMiddle.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToPinky.R/UpperPinky.R/PinkyMiddle.R/PinkyTip.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToPinky.R/UpperPinky.R/PinkyMiddle.R/PinkyTip.R/PinkyTip.R_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToPoint.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToPoint.R/UpperPoint.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToPoint.R/UpperPoint.R/PointMiddle.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToPoint.R/UpperPoint.R/PointMiddle.R/PointTip.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToPoint.R/UpperPoint.R/PointMiddle.R/PointTip.R/PointTip.R_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToRing.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToRing.R/UpperRing.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToRing.R/UpperRing.R/RingMiddle.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToRing.R/UpperRing.R/RingMiddle.R/RingTip.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToRing.R/UpperRing.R/RingMiddle.R/RingTip.R/RingTip.R_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToThumb.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToThumb.R/UpperThumb.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToThumb.R/UpperThumb.R/ThumbTip.R
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/HandToThumb.R/UpperThumb.R/ThumbTip.R/ThumbTip.R_end
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/LowerArm.R.001
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/LowerArm.R.001/LowerArm.R.002
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/LowerArm.R.001/LowerArm.R.002/LowerArm.R.003
+    m_Weight: 1
+  - m_Path: Armature/LowerBack/UpperBack/Shoulder.R/UpperArm.R/LowerArm.R/LowerArm.R.001/LowerArm.R.002/LowerArm.R.003/LowerArm.R.003_end
+    m_Weight: 1
+  - m_Path: Body
+    m_Weight: 0

@@ -7,6 +7,7 @@ public class GuardShoot : MonoBehaviour
     [SerializeField] GuardMove moveScript;
     [SerializeField] bool shooting;
 
+    [SerializeField] Animator anim;
     [SerializeField] GunSOB gun;
     [SerializeField] GameObject[] guns;
     [SerializeField] Transform shootPos;
@@ -29,6 +30,7 @@ public class GuardShoot : MonoBehaviour
             if(g.GetComponent<Gun>().name == gun.name)
             {
                 g.SetActive(true);
+                anim.SetBool(gun.name, true);
                 shootPos = g.GetComponent<Gun>().shootPos;
             }
         }

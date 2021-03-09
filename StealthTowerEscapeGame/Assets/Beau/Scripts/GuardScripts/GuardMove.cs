@@ -9,6 +9,7 @@ public class GuardMove : MonoBehaviour
 
 	public float walkingSpeed, searchingTime;
 
+    [SerializeField] Animator anim;
     [HideInInspector] public NavMeshAgent agent;
     int currentDest;
     Transform currentDestTrans;
@@ -55,6 +56,7 @@ public class GuardMove : MonoBehaviour
     {
         if (walkingPath != null)
         {
+            anim.SetBool("Walking", true);
             agent.SetDestination(walkingPath.points[currentDest].transform.position);
             currentDestTrans = walkingPath.points[currentDest].transform;
         }
