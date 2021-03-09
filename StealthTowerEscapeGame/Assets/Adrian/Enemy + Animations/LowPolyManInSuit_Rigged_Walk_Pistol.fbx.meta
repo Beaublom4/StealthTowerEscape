@@ -1,11 +1,17 @@
 fileFormatVersion: 2
-guid: 485532cbc0f590742879cb02a5d344a2
+guid: 46f07d1df592ba74cb71f7efcc9dc551
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: 8349542763059015795
     second: Armature|Walk
+  - first:
+      74: 7076107557609853431
+    second: Armature|z
+  - first:
+      74: 5446310820637326904
+    second: Armature|z.002
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -89,12 +95,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: b0344fb2bfe15474ebf14ba505c4df93,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 2
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

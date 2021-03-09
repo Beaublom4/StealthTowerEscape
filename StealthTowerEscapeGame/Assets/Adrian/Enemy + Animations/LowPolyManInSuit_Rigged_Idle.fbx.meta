@@ -1,23 +1,17 @@
 fileFormatVersion: 2
-guid: b033a47455d5edf4e97129659c1703a7
+guid: d053dd5185ee846488044af7d04d5edb
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: -5018838668354223103
-    second: Armature|Looking Around
+      74: -8945691123924629249
+    second: Armature|Idle
   - first:
-      74: 7578285886903307654
-    second: Armature|Lost Player
+      74: 5403349871719535626
+    second: Armature|zzzzzz
   - first:
-      74: -3204472273707942502
-    second: Armature|Noticing player
-  - first:
-      74: 2126547105437587583
-    second: Armature|Shooting
-  - first:
-      74: 8349542763059015795
-    second: Armature|Walk
+      74: -2780118815598661404
+    second: Armature|zzzzzzzzz
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -101,12 +95,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: b0344fb2bfe15474ebf14ba505c4df93,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 2
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: b0344fb2bfe15474ebf14ba505c4df93
+guid: 05526d705a5fc8540a7c895e35a1d4a2
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: -3204472273707942502
-    second: Armature|Noticing player
+      74: -5227321711917718892
+    second: Armature|Idle_Pistol
   - first:
-      74: 8349542763059015795
-    second: Armature|Walk
+      74: 5403349871719535626
+    second: Armature|zzzzzz
   - first:
-      74: -6544428077046268240
-    second: Armature|Walk.001
+      74: -2780118815598661404
+    second: Armature|zzzzzzzzz
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -99,7 +99,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
