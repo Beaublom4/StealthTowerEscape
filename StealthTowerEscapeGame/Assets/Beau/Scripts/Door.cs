@@ -29,4 +29,16 @@ public class Door : MonoBehaviour
             anim.SetBool("Open", true);
         }
     }
+    public void StartOpenCoroutine()
+    {
+        StartCoroutine(CoroutineOpen());
+    }
+    IEnumerator CoroutineOpen()
+    {
+        open = true;
+        anim.SetBool("Open", true);
+        yield return new WaitForSeconds(2);
+        anim.SetBool("Open", false);
+        open = false;
+    }
 }

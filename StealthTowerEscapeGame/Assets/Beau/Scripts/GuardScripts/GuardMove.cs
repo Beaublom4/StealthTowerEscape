@@ -40,6 +40,19 @@ public class GuardMove : MonoBehaviour
     }
     private void Update()
     {
+        Debug.DrawRay(transform.position, transform.forward * 2, Color.red);
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, transform.forward, out hit, 2))
+        {
+            if(hit.collider.tag == "Door")
+            {
+                if (!hit.collider.GetComponent<Door>().open)
+                {
+                    hit.collider.GetComponent<Door>().StartOpenCoroutine();
+                }
+            }
+        }
+
         if (spottedPlayer == true)
         {
             Quaternion lR = Quaternion.LookRotation((new Vector3(playerLoc.position.x, transform.position.y, playerLoc.position.z) - transform.position).normalized);

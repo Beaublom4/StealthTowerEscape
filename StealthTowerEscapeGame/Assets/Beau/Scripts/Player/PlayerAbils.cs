@@ -10,7 +10,9 @@ public class PlayerAbils : MonoBehaviour
 
     public float disableTime;
 
+    public GameObject phone;
     public PlayerPhone pPhoneScript;
+    public PhoneManager PMScript;
     public MouseLook camScript;
     public Melee meleeScript;
 
@@ -20,14 +22,13 @@ public class PlayerAbils : MonoBehaviour
     bool shootRay;
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
-        {
-            print("cancel");
-            shootRay = false;
-        }
-
         if (!shootRay)
             return;
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            ResetAbil();
+        }
 
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 20, -5, QueryTriggerInteraction.Ignore))
@@ -58,6 +59,13 @@ public class PlayerAbils : MonoBehaviour
         {
 
         }
+        ResetAbil();
+    }
+    private void ResetAbil()
+    {
+        phone.SetActive(false);
+        pPhoneScript.enabled = true;
+        PMScript.SelectApp("home");
     }
     public void CamDisable()
     {
@@ -88,9 +96,5 @@ public class PlayerAbils : MonoBehaviour
         Cursor.visible = false;
         meleeScript.enabled = true;
         shootRay = true;
-    }
-    public void ShootRayFalse()
-    {
-        shootRay = false;
     }
 }

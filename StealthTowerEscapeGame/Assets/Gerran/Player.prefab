@@ -9801,6 +9801,12 @@ MonoBehaviour:
   abilName: {fileID: 5051540342277756448}
   explenation: {fileID: 3085109094808084932}
   hitText: {fileID: 3712247609970092902}
+  disableTime: 10
+  phone: {fileID: 919132147612103870}
+  pPhoneScript: {fileID: 8906832765605314679}
+  PMScript: {fileID: 1390197102}
+  camScript: {fileID: 901653824606624209}
+  meleeScript: {fileID: 901653824019198767}
   cam: {fileID: 901653824606624213}
 --- !u!1 &901653824606624213
 GameObject:

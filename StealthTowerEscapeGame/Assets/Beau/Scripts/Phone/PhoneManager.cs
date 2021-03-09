@@ -58,7 +58,7 @@ public class PhoneManager : MonoBehaviour
         Press();
     }
 
-    void SelectApp(string name)
+    public void SelectApp(string name)
     {
         print("select: " + name);
         foreach (GameObject g in panels)

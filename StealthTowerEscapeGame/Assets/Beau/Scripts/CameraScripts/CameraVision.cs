@@ -18,6 +18,8 @@ public class CameraVision : MonoBehaviour
 
     [SerializeField] LayerMask mask, guardMask;
 
+    [SerializeField] GameObject interactParticle;
+    [SerializeField] Animator anim;
     IEnumerator coroutineRedCam;
 
     public bool disabled;
@@ -49,8 +51,8 @@ public class CameraVision : MonoBehaviour
         if (other.tag == "Player")
         {
             color = Color.white;
-            Vector3 direction = (other.transform.position - transform.position).normalized;
-            float angle = (Vector3.Angle(direction, transform.forward));
+            Vector3 direction = (other.transform.position - lookPos.position).normalized;
+            float angle = (Vector3.Angle(direction, lookPos.transform.forward));
 
             if (angle < fieldOfView * .5f)
             {
@@ -136,8 +138,11 @@ public class CameraVision : MonoBehaviour
     }
     IEnumerator CoroutineDisableCam(float time)
     {
+        Destroy(Instantiate(interactParticle, lookPos.position, Quaternion.identity, null), 3);
+        anim.SetBool("Disabled", true);
         spot.enabled = false;
         yield return new WaitForSeconds(time);
+        anim.SetBool("Disabled", false);
         spot.enabled = true;
         disabled = false;
     }
