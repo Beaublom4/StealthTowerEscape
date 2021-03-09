@@ -9,6 +9,7 @@ public class PlayerPhone : MonoBehaviour
     public Melee meleeScript;
     private void Update()
     {
+
         if(Input.GetButtonDown("Cancel"))
         {
             if (!phone.activeSelf)

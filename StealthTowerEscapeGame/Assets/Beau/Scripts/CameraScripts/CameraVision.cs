@@ -20,6 +20,8 @@ public class CameraVision : MonoBehaviour
 
     IEnumerator coroutineRedCam;
 
+    public bool disabled;
+
     private void Awake()
     {
         lookPosVisualLine[0].localRotation = Quaternion.Euler(0, fieldOfView * .5f, 0);
@@ -41,6 +43,9 @@ public class CameraVision : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
+        if (disabled)
+            return;
+
         if (other.tag == "Player")
         {
             color = Color.white;
@@ -120,5 +125,20 @@ public class CameraVision : MonoBehaviour
     void DrawVisionRay(GameObject player)
     {
         Debug.DrawRay(lookPos.position, player.transform.position - lookPos.position, color);
+    }
+    public void CamDisable(float disableTime)
+    {
+        if (!disabled)
+        {
+            disabled = true;
+            StartCoroutine(CoroutineDisableCam(disableTime));
+        }
+    }
+    IEnumerator CoroutineDisableCam(float time)
+    {
+        spot.enabled = false;
+        yield return new WaitForSeconds(time);
+        spot.enabled = true;
+        disabled = false;
     }
 }

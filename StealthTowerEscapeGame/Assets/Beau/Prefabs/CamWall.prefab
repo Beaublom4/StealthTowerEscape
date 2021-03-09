@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 343532933136293295}
   - component: {fileID: 3705234290354917898}
   - component: {fileID: 1481497074211186368}
+  - component: {fileID: 17881967}
   m_Layer: 0
   m_Name: Security Camera 2
-  m_TagString: Untagged
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +83,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &17881967
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121301531959543573}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2823133854989161472, guid: 1b6fbf5c210132244a4bb74b33a98e7e, type: 3}
 --- !u!1 &4753993420937696540
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,9 +200,10 @@ GameObject:
   - component: {fileID: 4700996235120489386}
   - component: {fileID: 8544050590852922383}
   - component: {fileID: 5869993477308270789}
+  - component: {fileID: 299512554}
   m_Layer: 0
   m_Name: Security Camera 2 tripod
-  m_TagString: Untagged
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,6 +269,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &299512554
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365647012974717200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3783415203160628092, guid: 14ebe366549e0814d91395b509c0552a, type: 3}
 --- !u!1 &7828855823743853095
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,8 +428,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7828855824175933702}
-  - component: {fileID: 7828855824175933721}
-  - component: {fileID: 842025370833544405}
   m_Layer: 0
   m_Name: Vision
   m_TagString: Untagged
@@ -425,47 +453,6 @@ Transform:
   m_Father: {fileID: 343532933136293295}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7828855824175933721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7828855824175933703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0c6ffb15c077c469278f83cad99760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spotSpeed: 30
-  fieldOfView: 50
-  spot: {fileID: 7877199381683222105}
-  lookPos: {fileID: 7828855824175933702}
-  lookPosVisualLine:
-  - {fileID: 7828855824993690786}
-  - {fileID: 7828855825223368067}
-  - {fileID: 7828855823809422816}
-  - {fileID: 7828855824920460357}
-  playerInSight: 0
-  mask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  guardMask:
-    serializedVersion: 2
-    m_Bits: 1024
---- !u!135 &842025370833544405
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7828855824175933703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 8
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7828855824920460354
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +552,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 430431553245366390}
+  - component: {fileID: 605283539146521345}
+  - component: {fileID: 1326195896936600365}
   m_Layer: 0
   m_Name: CamWall
   m_TagString: Untagged
@@ -588,3 +577,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
+--- !u!114 &605283539146521345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167647880051652534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0c6ffb15c077c469278f83cad99760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spotSpeed: 30
+  fieldOfView: 50
+  spot: {fileID: 7877199381683222105}
+  lookPos: {fileID: 7828855824175933702}
+  lookPosVisualLine:
+  - {fileID: 7828855824993690786}
+  - {fileID: 7828855825223368067}
+  - {fileID: 7828855823809422816}
+  - {fileID: 7828855824920460357}
+  playerInSight: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  guardMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  disabled: 0
+--- !u!135 &1326195896936600365
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167647880051652534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 8
+  m_Center: {x: 0, y: 0, z: 0}

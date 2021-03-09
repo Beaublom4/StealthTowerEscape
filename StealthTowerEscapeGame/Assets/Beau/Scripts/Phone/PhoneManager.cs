@@ -52,6 +52,11 @@ public class PhoneManager : MonoBehaviour
         SelectApp("settings");
         Press();
     }
+    public void ButtonAbil()
+    {
+        SelectApp("ability");
+        Press();
+    }
 
     void SelectApp(string name)
     {
