@@ -119,6 +119,8 @@ public class GuardMove : MonoBehaviour
         print("Attack player");
         playerLoc = _player.transform;
 
+        anim.SetBool("Attacking", true);
+
         isAttacking = true;
         spottedPlayer = false;
 
@@ -158,6 +160,7 @@ public class GuardMove : MonoBehaviour
     public void ReturnToPath()
     {
         print("Return on path");
+        anim.SetBool("Attacking", false);
         flashLight.color = Color.white;
         spottedPlayer = false;
         agent.SetDestination(walkingPath.points[currentDest].transform.position);

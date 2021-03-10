@@ -79,6 +79,7 @@ public class GuardShoot : MonoBehaviour
             moveScript.agent.speed = 0;
             player = other.gameObject;
             shooting = true;
+            anim.SetBool("Walking", false);
             print("Shooting");
         }
     }
@@ -90,6 +91,7 @@ public class GuardShoot : MonoBehaviour
             moveScript.agent.speed = moveScript.walkingSpeed;
             player = null;
             print("Stop shooting");
+            anim.SetBool("Walking", true);
         }
     }
 }

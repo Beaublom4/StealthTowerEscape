@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5de275255ba8c744bf40fb1389f63df, type: 3}
-  m_Name: Pistol
+  m_Name: AR
   m_EditorClassIdentifier: 
-  name: Pistol
-  damage: 33.4
+  name: AR
+  damage: 20
   fireRate: 2
-  range: 5
+  range: 10
   gunObj: {fileID: 0}
   shotSound: {fileID: 8300000, guid: 33db4dab1cc895d4f8c7b5895ab7f7bc, type: 3}
