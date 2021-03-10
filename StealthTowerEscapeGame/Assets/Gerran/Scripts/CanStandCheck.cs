@@ -6,11 +6,17 @@ public class CanStandCheck : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        GetComponentInParent<PlayerMovement>().canStandup = false;
+        if (other.tag != "Player")
+        {
+            GetComponentInParent<PlayerMovement>().canStandup = false;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        GetComponentInParent<PlayerMovement>().canStandup = true;
+        if (other.tag != "Player")
+        {
+            GetComponentInParent<PlayerMovement>().canStandup = true;
+        }
     }
 }

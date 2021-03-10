@@ -105,13 +105,13 @@ public class PlayerMovement : MonoBehaviour
             controller.height = walkHeight;
             speed = walkingSpeed;
         }
-        if (Input.GetButtonUp("Crouch"))
+        if (Input.GetButtonUp("Crouch") && canStandup == true)
         {
             anim.SetBool("isCrouched", false);
             controller.height = walkHeight;
             speed = walkingSpeed;
         }
-        if (Input.GetButtonUp("Prone"))
+        if (Input.GetButtonUp("Prone") && canStandup == true)
         {
             anim.SetBool("isCrouched", false);
             cam.transform.localPosition = normalCam;
