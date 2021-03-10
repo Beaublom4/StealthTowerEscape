@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     public Vector3 slideFoward;
-    public bool slideUnlocked, isSliding, isJumping, canStandup;
+    public bool slideUnlocked, isSliding, isJumping, canStandup, iscrouched, standUp;
     public float slideCooldown;
     public bool canSlide = true;
 
@@ -89,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
             speed = crouchSpeed;
             ResetAnims();
             anim.SetBool("isCrouched", true);
+            iscrouched = true;
         }
         else if (Input.GetButton("Prone") && isSliding == false)
         {
@@ -97,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
             controller.radius = .1f;
             speed = proneSpeed;
             anim.SetBool("isCrouched", true);
+            iscrouched = true;
         }
 
         if (Input.GetButtonUp("Run"))
@@ -105,18 +107,23 @@ public class PlayerMovement : MonoBehaviour
             controller.height = walkHeight;
             speed = walkingSpeed;
         }
-        if (Input.GetButtonUp("Crouch") && canStandup == true)
+        if (Input.GetButtonUp("Crouch"))
         {
-            anim.SetBool("isCrouched", false);
-            controller.height = walkHeight;
-            speed = walkingSpeed;
+            standUp = true;
         }
-        if (Input.GetButtonUp("Prone") && canStandup == true)
+        if (Input.GetButtonUp("Prone"))
+        {
+            standUp = true;
+        }
+
+        if (iscrouched = true && canStandup == true && standUp == true)
         {
             anim.SetBool("isCrouched", false);
             cam.transform.localPosition = normalCam;
             controller.height = walkHeight;
             speed = walkingSpeed;
+            iscrouched = false;
+            standUp = false;
         }
     }
     void SlideCooldown()

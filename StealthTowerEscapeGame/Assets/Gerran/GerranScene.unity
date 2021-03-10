@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   reSpawnPoint: {x: 0, y: 0, z: 0}
-  text: {fileID: 0}
+  text: {fileID: 88772630}
 --- !u!1 &87686528
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +258,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &88772630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4847368642521519491, guid: c7e8e0942eca95644bf5181e44790284,
+    type: 3}
+  m_PrefabInstance: {fileID: 901653823969016518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &126508874
 GameObject:
   m_ObjectHideFlags: 0
@@ -3682,6 +3694,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 880550014, guid: c7e8e0942eca95644bf5181e44790284, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 456284037444214019, guid: c7e8e0942eca95644bf5181e44790284,
         type: 3}
       propertyPath: m_AnchorMax.y
