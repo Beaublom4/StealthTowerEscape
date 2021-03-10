@@ -66,6 +66,7 @@ public class GuardVision : MonoBehaviour
                                 guardMoveScript.AttackPlayer(other.gameObject);
                             }
                         }
+                        guardMoveScript.ShowEnemy();
                     }
                     else if(playerInSight)
                     {

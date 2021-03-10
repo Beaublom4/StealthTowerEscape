@@ -6,6 +6,9 @@ public class Door : MonoBehaviour
 {
     public bool open;
     public Animator anim;
+
+    public AudioSource sound;
+    public AudioClip openSound, closeSound;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -40,5 +43,15 @@ public class Door : MonoBehaviour
         yield return new WaitForSeconds(2);
         anim.SetBool("Open", false);
         open = false;
+    }
+    public void DoorOpenSound()
+    {
+        sound.clip = openSound;
+        sound.Play();
+    }
+    public void DoorCloseSound()
+    {
+        sound.clip = closeSound;
+        sound.Play();
     }
 }

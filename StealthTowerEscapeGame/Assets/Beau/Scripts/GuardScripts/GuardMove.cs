@@ -162,4 +162,20 @@ public class GuardMove : MonoBehaviour
         spottedPlayer = false;
         agent.SetDestination(walkingPath.points[currentDest].transform.position);
     }
+
+    public GameObject icon;
+    IEnumerator iconCoroutine;
+    public void ShowEnemy()
+    {
+        if (iconCoroutine != null)
+            StopCoroutine(iconCoroutine);
+        iconCoroutine = ShowEnemyIcon();
+        StartCoroutine(iconCoroutine);
+    }
+    IEnumerator ShowEnemyIcon()
+    {
+        icon.SetActive(true);
+        yield return new WaitForSeconds(30);
+        icon.SetActive(false);
+    }
 }
