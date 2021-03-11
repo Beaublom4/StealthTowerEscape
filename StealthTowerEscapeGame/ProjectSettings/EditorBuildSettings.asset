@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Adrian/MainMenu.unity
     guid: d65e7860354559a4db3f56489747fdde
   - enabled: 1
+    path: Assets/Beau/PreGame.unity
+    guid: 1c69c0dcd7ad6814c9dd5d7607a177ab
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: f98dafce47035694d801209904f4d6ec
   m_configObjects: {}

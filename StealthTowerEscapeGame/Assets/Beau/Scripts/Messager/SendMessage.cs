@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SendMessage : MonoBehaviour
 {
+    [TextArea]
     public string message;
 
     public Messager messagerScript;

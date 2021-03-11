@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPhone : MonoBehaviour
 {
-    public GameObject phone;
+    public GameObject phone, phoneIcon;
     public MouseLook cameraScript;
     public Melee meleeScript;
     private void Update()
@@ -14,6 +14,9 @@ public class PlayerPhone : MonoBehaviour
         {
             if (!phone.activeSelf)
             {
+                if (phoneIcon.activeSelf)
+                    phoneIcon.SetActive(false);
+
                 phone.SetActive(true);
                 meleeScript.enabled = false;
                 Cursor.lockState = CursorLockMode.None;
