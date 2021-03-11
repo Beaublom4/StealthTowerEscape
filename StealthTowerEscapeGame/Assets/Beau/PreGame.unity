@@ -3184,8 +3184,8 @@ MonoBehaviour:
     afterTextImage: {fileID: 0}
     isText: 0
     waitTime: 3
-  - speech: Your information is not enough we need more to prove they are really
-      doing illegal things.
+  - speech: The information you gave us is not enough we need more to prove they
+      are really doing illegal things.
     image: {fileID: 2076873874}
     afterTextImage: {fileID: 757492632}
     isText: 1
@@ -3210,8 +3210,8 @@ MonoBehaviour:
     afterTextImage: {fileID: 0}
     isText: 0
     waitTime: 6
-  - speech: 'We have a problem: The police thinks it''s not enough evidence to prove
-      the''re an illegal business.'
+  - speech: 'We have a problem: The police thinks it is not enough evidence to prove
+      they are an illegal business.'
     image: {fileID: 181822440}
     afterTextImage: {fileID: 2016125810}
     isText: 1
@@ -3236,10 +3236,8 @@ MonoBehaviour:
     afterTextImage: {fileID: 2016125810}
     isText: 1
     waitTime: 0
-  - speech: 'Go to location that I will send you. I''ll also send you a new phone
-      with the map of the building
-
-      and some cool apps you can use. Succes!'
+  - speech: Go to the location I will send you. I will also send you a new phone
+      with the map of the building and some cool apps you can use. Goodluck!
     image: {fileID: 65862434}
     afterTextImage: {fileID: 2016125810}
     isText: 1
