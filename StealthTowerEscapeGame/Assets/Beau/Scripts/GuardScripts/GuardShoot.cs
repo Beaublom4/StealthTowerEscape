@@ -87,11 +87,15 @@ public class GuardShoot : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            shooting = false;
-            moveScript.agent.speed = moveScript.walkingSpeed;
-            player = null;
-            print("Stop shooting");
-            anim.SetBool("Walking", true);
+            StopShooting();
         }
+    }
+    public void StopShooting()
+    {
+        shooting = false;
+        moveScript.agent.speed = moveScript.walkingSpeed;
+        player = null;
+        print("Stop shooting");
+        anim.SetBool("Walking", true);
     }
 }

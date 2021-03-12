@@ -29,6 +29,8 @@ public class GuardMove : MonoBehaviour
     [SerializeField] Light flashLight;
     [SerializeField] Color spottedColor;
 
+    bool Stunned;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -52,6 +54,9 @@ public class GuardMove : MonoBehaviour
                 }
             }
         }
+
+        if (Stunned)
+            return;
 
         if (spottedPlayer == true)
         {
@@ -96,6 +101,7 @@ public class GuardMove : MonoBehaviour
 
     public void SpottedPlayer(Transform _player)
     {
+        anim.SetBool("Walking", false);
         agent.isStopped = true;
         playerLoc = _player;
         spottedPlayer = true;
@@ -106,6 +112,7 @@ public class GuardMove : MonoBehaviour
         isAttacking = false;
         spottedPlayer = false;
 
+        shootTrigger.GetComponent<GuardShoot>().StopShooting();
         shootTrigger.SetActive(false);
 
         lastPlayerLoc = playerLoc.position;
@@ -119,6 +126,7 @@ public class GuardMove : MonoBehaviour
         print("Attack player");
         playerLoc = _player.transform;
 
+        anim.SetBool("Walking", true);
         anim.SetBool("Attacking", true);
 
         isAttacking = true;
@@ -180,5 +188,27 @@ public class GuardMove : MonoBehaviour
         icon.SetActive(true);
         yield return new WaitForSeconds(30);
         icon.SetActive(false);
+    }
+
+    IEnumerator coroutineDistort;
+    public void Distort()
+    {
+        if (coroutineDistort != null)
+            StopCoroutine(coroutineDistort);
+        coroutineDistort = DistortTime();
+        StartCoroutine(coroutineDistort);
+    }
+    IEnumerator DistortTime()
+    {
+        print("stunned");
+
+        Stunned = true;
+        agent.isStopped = true;
+        anim.SetBool("Walking", false);
+        GetComponentInChildren<GuardVision>().enabled = false;
+
+        yield return new WaitForSeconds(10);
+
+        print("not stunned any more");
     }
 }

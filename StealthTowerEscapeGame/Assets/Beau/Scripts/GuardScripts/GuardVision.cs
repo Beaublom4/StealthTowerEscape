@@ -9,6 +9,7 @@ public class GuardVision : MonoBehaviour
 
     [SerializeField] Transform lookPos;
     [SerializeField] GameObject guardMain;
+    [SerializeField] Animator anim;
 
     [SerializeField] Transform[] lookPosVisualLine;
     float visionRange;
@@ -59,6 +60,7 @@ public class GuardVision : MonoBehaviour
                         if (!guardMoveScript.isAttacking)
                         {
                             playerInSight = true;
+                            anim.SetBool("Searching", false);
                             other.GetComponent<PlayerGetSpotted>().IncreaseSpottedMeter(spotSpeed);
                             guardMoveScript.SpottedPlayer(other.transform);
                             if(other.GetComponent<PlayerGetSpotted>().spottedMeter >= 100)
@@ -155,10 +157,13 @@ public class GuardVision : MonoBehaviour
     IEnumerator LostPlayerVision(GameObject player)
     {
         playerInSight = false;
+        
         player.GetComponent<PlayerGetSpotted>().DecreaseSpottedMeter();
         yield return new WaitForSeconds(2);
+        anim.SetBool("Searching", true);
         guardMoveScript.StopSearchForPlayer();
         yield return new WaitForSeconds(lostPlayerSearchTime);
+        anim.SetBool("Searching", false);
         guardMoveScript.ReturnToPath();
     }
 

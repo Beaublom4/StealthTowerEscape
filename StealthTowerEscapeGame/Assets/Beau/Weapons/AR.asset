@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AR
   m_EditorClassIdentifier: 
   name: AR
-  damage: 20
+  damage: 1
   fireRate: 2
   range: 10
   gunObj: {fileID: 0}

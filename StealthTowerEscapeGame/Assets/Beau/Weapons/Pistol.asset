@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   name: Pistol
-  damage: 33.4
+  damage: 1
   fireRate: 2
   range: 5
   gunObj: {fileID: 0}

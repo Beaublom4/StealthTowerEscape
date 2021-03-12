@@ -55,9 +55,9 @@ public class PlayerAbils : MonoBehaviour
         {
             hit.GetComponentInParent<CameraVision>().CamDisable(disableTime);
         }
-        else if(abilName.text == "")
+        else if(abilName.text == "Distort Hearing")
         {
-
+            hit.GetComponent<GuardMove>().Distort();
         }
         ResetAbil();
     }
@@ -76,16 +76,16 @@ public class PlayerAbils : MonoBehaviour
     }
     public void HearingDistort()
     {
-        abilName.text = "";
-        explenation.text = "";
-        wantedTag = "Guard";
+        abilName.text = "Distort Hearing";
+        explenation.text = "Hover over guard to target that guard.";
+        wantedTag = "Enemy";
         SelectAbil();
     }
     public void PhoneAlarm()
     {
         abilName.text = "";
         explenation.text = "";
-        wantedTag = "Guard";
+        wantedTag = "Enemy";
         SelectAbil();
     }
     void SelectAbil()
