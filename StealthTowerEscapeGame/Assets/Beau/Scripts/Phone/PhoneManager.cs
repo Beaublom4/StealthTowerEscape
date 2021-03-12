@@ -57,6 +57,18 @@ public class PhoneManager : MonoBehaviour
         SelectApp("ability");
         Press();
     }
+    public void Quit(GameObject g)
+    {
+        g.SetActive(true);
+    }
+    public void QuitYes()
+    {
+        Application.Quit();
+    }
+    public void QuitNo(GameObject g)
+    {
+        g.SetActive(false);
+    }
 
     public void SelectApp(string name)
     {
